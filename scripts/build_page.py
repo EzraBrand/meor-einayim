@@ -81,6 +81,7 @@ def main() -> None:
     if bad:
         sys.exit("alignment errors; no page written")
 
+    breaks = page_breaks([l for b in he for l in b], meta["leaves"])
     rows, seg = [], 0
     for pnum, (h, e) in enumerate(zip(he, en), 1):
         rows.append(f'<section class="blk prose" id="p{pnum}">')
@@ -91,8 +92,8 @@ def main() -> None:
                       f'aria-label="Link to paragraph {pnum}">¶</a>') if j == len(h) - 1 else ""
             rows.append(
                 f'<div class="row" id="s{seg}"><a class="ln" href="#s{seg}" title="Link to segment {seg}">{seg}</a>'
-                f'<p class="he" lang="he" dir="rtl">{html.escape(hl, quote=False)}</p>'
-                f'<p class="en">{fmt_en(el)}{anchor}</p></div>'
+                f'<p class="he" lang="he" dir="rtl">{he_with_breaks(hl, breaks.get(seg - 1, []))}</p>'
+                f'<p class="en">{"".join(pb_mark(lf) + " " for _, lf in breaks.get(seg - 1, []))}{fmt_en(el)}{anchor}</p></div>'
             )
         rows.append("</section>")
 
@@ -131,6 +132,7 @@ def main() -> None:
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
 Fixed links: <code>#p3</code> is a paragraph (the ¶ at its end), <code>#s12</code> a segment (its number).
+<a class="pb" href="#">[p. 210]</a> marks where a printed page starts and links to its scan: at the exact place in the Hebrew, at the start of the segment in the English.
 Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
 </details>
 <div class="scans" aria-label="Scans of the printed pages">{thumbs}</div>
@@ -163,6 +165,70 @@ def printed(leaf: int) -> str:
     """The printed page of a scan leaf: part 1 is leaf - 24 (leaf 288 = p. 264); part 2 starts its
     own page count at leaf 289."""
     return f"II p. {leaf - PART2 + 1}" if leaf >= PART2 else f"p. {leaf - 24}"
+
+
+def scan_url(leaf: int) -> str:
+    return f"https://archive.org/details/sefermeorenayim00ross/page/n{leaf - 1}/mode/1up"
+
+
+def pb_mark(leaf: int) -> str:
+    """The mark where a printed page starts, linking to its scan (as the Bochart reader)."""
+    return (f'<a class="pb" href="{scan_url(leaf)}" target="_blank" rel="noopener" '
+            f'title="Start of {printed(leaf)} (scan)">[{printed(leaf)}]</a>')
+
+
+def page_breaks(segs: list[str], leaves) -> dict:
+    """Where each printed page starts in the chapter's Hebrew: {segment index: [(char offset, leaf)]}.
+    The OCR is kept page by page (data/ocr/<Opus>/<leaf>.json); the first words of each page are found
+    in the corrected text, in order. The first page of the chapter starts at segment 1. A page whose
+    first words are not found (changed by the vote, or a page that belongs to the next chapter) is
+    left out."""
+    import model_eval as ME
+    ocr = ROOT / "data" / "ocr" / "anthropic_claude-opus-5.5@low"
+    toks = []  # (segment, char offset, normalized word)
+    for si, s in enumerate(segs):
+        for m in re.finditer(r"\S+", s):
+            for w in ME.norm(m.group(0)).split():
+                toks.append((si, m.start(), w))
+    words = [t[2] for t in toks]
+    out = {0: [(0, leaves[0])]}
+    pos = 0
+    for leaf in range(leaves[0] + 1, leaves[1] + 1):
+        f = ocr / f"{leaf}.json"
+        if not f.exists():
+            continue
+        pw = ME.norm(json.loads(f.read_text(encoding="utf-8"))["text"]).split()
+        hit = None
+        for skip in range(0, 8):  # the first words may differ after the vote: try from the 2nd, 3rd ...
+            for k in (5, 4, 3):
+                key = pw[skip:skip + k]
+                if len(key) < k:
+                    continue
+                for i in range(pos, len(words) - k + 1):
+                    if words[i:i + k] == key:
+                        hit = i - skip if i - skip >= pos else i
+                        break
+                if hit is not None:
+                    break
+            if hit is not None:
+                break
+        if hit is None:
+            continue
+        si, off, _ = toks[hit]
+        out.setdefault(si, []).append((off, leaf))
+        pos = hit + 1
+    return out
+
+
+def he_with_breaks(s: str, marks: list) -> str:
+    """The Hebrew segment, escaped, with the page marks at their places."""
+    parts, last = [], 0
+    for off, leaf in sorted(marks):
+        parts.append(html.escape(s[last:off], quote=False))
+        parts.append(pb_mark(leaf) + " ")
+        last = off
+    parts.append(html.escape(s[last:], quote=False))
+    return "".join(parts)
 
 
 def scan_thumbs(leaves) -> str:
