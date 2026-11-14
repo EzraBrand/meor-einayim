@@ -18,9 +18,9 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 ## Sources
 
-- **Hebrew text:** the Vilna 1863–66 printing, edited by David Cassel: [archive.org scan](https://archive.org/details/sefermeorenayim00ross). Chapter 16 is on printed pages 203–209 (scan images 227–233). The text starts from the archive.org OCR (`_djvu.txt`) and is corrected against the page images.
+- **Hebrew text:** the Vilna 1863–66 printing in the series Kiryat Sefer, begun by Isaac Benjacob (d. 1863), "printed after the Mantua edition, with all the first and second versions in their places in the text" (title page): [archive.org scan](https://archive.org/details/sefermeorenayim00ross). Chapter 16 is on printed pages 203–209 (scan images 227–233). The text starts from the archive.org OCR (`_djvu.txt`) and is corrected against the page images.
 - **First edition:** Mantua 1573–75, [National Library of Israel scan](https://www.nli.org.il/he/books/NNL_ALEPH001072949/NLI). Not yet compared.
-- **Not included:** the author's notes, which the Vilna printing sets in Rashi type. The OCR of that type is not usable.
+- **Not included:** the notes in Rashi type. By the title page they are "many additions by the author and some later scholars", until then in manuscript in the margin of a copy of the book owned by Leopold Zunz. This edition does not yet separate the author's notes from the later ones. The OCR of Rashi type is not usable yet.
 - No open, clean digital Hebrew text was found (Sefaria, Hebrew Wikisource and Project Ben-Yehuda do not have the book).
 
 ## Translations that exist

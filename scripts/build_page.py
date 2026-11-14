@@ -101,7 +101,7 @@ def main() -> None:
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
-Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (ed. David Cassel), pages {meta["pages"]}, {meta["source_note"]} The author's notes in Rashi type are not included.</p>
+Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), pages {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
 </header>
 <main>
 {chr(10).join(rows)}
