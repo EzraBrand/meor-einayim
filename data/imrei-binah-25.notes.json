@@ -1,0 +1,26 @@
+{
+ "1": {
+  "he": "הר\"ר ברוך מפיסקי\"ירה",
+  "note": "פיסקי\"ירה is taken as Peschiera (del Garda); the individual is not further identified here."
+ },
+ "2": {
+  "he": "תשס\"ב שנים לחרבן ואלף קי\"ז",
+  "note": "Figures kept as printed; the author himself notes that the reckoning is imprecise."
+ },
+ "3": {
+  "he": "ח' אלול שנת קע\"ב",
+  "note": "1 Macc 14:27 gives the 18th of Elul, year 172; the Vilna text reads ח' (8th), possibly a dropped digit."
+ },
+ "4": {
+  "he": "בששי מפרקי ר' אליעזר",
+  "note": "The discussion of intercalation in Pirkei de-Rabbi Eliezer is usually in ch. 8; the chapter number is kept as printed."
+ },
+ "5": {
+  "he": "ד' אלפים ר\"ם ליצירה (היינו תתי\"א לשטרות)",
+  "note": "On the standard equation (Seleucid year = AM − 3449), 4240 AM corresponds to 791, not 811; the figure is kept as printed."
+ },
+ "6": {
+  "he": "הלא יכנסו בלשכתם למצוא חשבון",
+  "note": "The sense seems to be that, had the Sanhedrin still existed, its number could simply have been checked in its chamber; the rendering is tentative."
+ }
+}

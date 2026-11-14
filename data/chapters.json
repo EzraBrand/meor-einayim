@@ -68,12 +68,134 @@
  "22": {
   "title_en": "Objections to Abraham ibn Daud and Don Isaac Abravanel on Simeon the Just, and whether there was more than one of that name",
   "title_he": "השגות על הרא\"בד הלוי והשר דון יצחק בדבר שמעון הצדיק, ואם נמצא יותר מאחד בשם ההוא.",
-  "pages": "234–238",
+  "pages": "234–239",
   "leaves": [
    258,
-   262
+   263
   ],
   "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
-  "status": "Draft, 14-Nov-2026. OCR and translation by models; not reviewed. References not verified."
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 99 segments. References not verified. 5 uncertain renderings."
+ },
+ "23": {
+  "title_en": "More objections, also to Saadia, Maimonides, Yesod Olam and Kaftor va-Ferah: the era of contracts began not with Alexander but after his empire was divided",
+  "title_he": "עוד השגות על שני החכמים הנזכרי' וגם על רבינו סעדיה ורמב\"ם ובעל יסוד עולם וספר כפתור ופרח שאמרו כי המנין לשטרות אשר התחיל כדבר רז\"ל ש\"פ שנים קודם חרבן שני היה ראשיתו מתחלת מלכות אלכסנדרו מוקדון. כי לא החל רק אחרי החלק מלכותו בין ארבעת עבדיו דאלו שית שנין שמלכו יונים בעילם לא חשיבינן להו.",
+  "pages": "239–243",
+  "leaves": [
+   263,
+   267
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 117 segments. References not verified. 4 uncertain renderings."
+ },
+ "24": {
+  "title_en": "From the start of Greek rule (the era of contracts) to our day, the sages of Israel and of the nations do not really disagree",
+  "title_he": "איך בזמן הנמשך מראשית מלכות יונים שהוא המנין לשטרות עד היום הזה, אין בכל חכמי ישראל ויתר האמות מחלוקת נחשבת.",
+  "pages": "243–245",
+  "leaves": [
+   267,
+   269
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 37 segments. References not verified. 8 uncertain renderings."
+ },
+ "25": {
+  "title_en": "The count of years from Creation came into general use among our people only after the close of the Babylonian Talmud",
+  "title_he": "איך המנין ליצירה איננו נהוג בעמנו למרבה רק מעת החתם הגמרא הבבלית.",
+  "pages": "245–250",
+  "leaves": [
+   269,
+   274
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 142 segments. References not verified. 6 uncertain renderings."
+ },
+ "26": {
+  "title_en": "Difficulties in two sayings of R. Yose, and their solution",
+  "title_he": "קשיות על שני מאמרים נמצאו לר' יוסי והיתרן.",
+  "pages": "250–254",
+  "leaves": [
+   274,
+   278
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 108 segments. References not verified. 9 uncertain renderings."
+ },
+ "27": {
+  "title_en": "A defence of the sages, even granting that in some stories that do not touch the law they did not establish the truth",
+  "title_he": "התנצלות בעד חכמינו גם שיונח כי בספורי קצת מעשים בלתי מתיחסים לדיני התורה לא עמדו על אמתתם ולא הגידוה לנו.",
+  "pages": "254–259",
+  "leaves": [
+   278,
+   283
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 141 segments. References not verified. 8 uncertain renderings."
+ },
+ "28": {
+  "title_en": "Beyond three kinds of teaching, the foundations of the Oral Torah, the sages let later scholars disagree with them; their errors in worldly matters do not imply errors in Torah",
+  "title_he": "איך משלשה מיני למודים ואילך אשר הם יסודות התורה שעל פה לא מנעו החכמים ז\"ל את האחרונים מחלוק עליהם בטוב טעם, והתנצלותם עוד על איזה שגגה אשר תמצא להם במילי דעלמא. וכי אין בשום אופן ללמוד הימנה ולומר שככה בדברי התורה שגו חס ושלום כל מאומה.",
+  "pages": "259–265",
+  "leaves": [
+   283,
+   289
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 157 segments. References not verified. 9 uncertain renderings."
+ },
+ "29": {
+  "title_en": "Yemei Olam, the third section: is the count of years from Creation to be lengthened or shortened?",
+  "title_he": "חקירה על מנין השנים שאנו מונים ליצירה אם יש להוסיף או לגרוע:",
+  "pages": "265–268",
+  "leaves": [
+   289,
+   292
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 97 segments. References not verified. 6 uncertain renderings.",
+  "strip_from": "ימי עולם"
+ },
+ "30": {
+  "title_en": "What Xenophon the Greek says about the two Cyruses, kings of Persia",
+  "title_he": "דברים נמצאים לגסינופונטי היוני על שני כורש מלכי פרס:",
+  "pages": "268–270",
+  "leaves": [
+   292,
+   294
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 36 segments. References not verified. 9 uncertain renderings."
+ },
+ "31": {
+  "title_en": "The words of Metasthenes the Persian in his book on the order of the times",
+  "title_he": "דברי מיטאסטיני הפרסי בספרו מסדר הזמנים:",
+  "pages": "270–272",
+  "leaves": [
+   294,
+   296
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 54 segments. References not verified. 7 uncertain renderings."
+ },
+ "32": {
+  "title_en": "The Book of Times of Philo (Yedidyah) of Alexandria, translated from Greek into Latin and now into Hebrew",
+  "title_he": "ספר העתים לידידיה האלכסנדרי נעתק מיוני לרומיי וממנו עתה ללשון הקדש:",
+  "pages": "272–276",
+  "leaves": [
+   296,
+   300
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 97 segments. References not verified. 8 uncertain renderings."
+ },
+ "33": {
+  "title_en": "The number of the Persian kings and of the high priests at the start of the Second Temple, from the Greek Josephus",
+  "title_he": "העולה מדברי היוסיפון לרומיים על מספר מלכי פרס והכ\"ג שהיו בראשית ימי הבית.",
+  "pages": "276–281",
+  "leaves": [
+   300,
+   305
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. References not verified."
  }
 }

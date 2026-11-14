@@ -98,6 +98,16 @@ def cmd_chapters():
     for leaf in leaves:
         for m in HEAD.finditer(page_text(MAIN, leaf)):
             print(f"leaf {leaf}: chapter {heb_value(m.group(1))} ({m.group(0).strip()})")
+            # the title (small type) is the line before the heading; Opus sometimes leaves it out
+            for spec in (MAIN, SECOND, THIRD):
+                f = mdir(spec) / f"{leaf}.json"
+                if not f.exists():
+                    continue
+                t = page_text(spec, leaf)
+                hs = [h for h in HEAD.finditer(t) if heb_value(h.group(1)) == heb_value(m.group(1))]
+                if hs:
+                    before = t[:hs[0].start()].rstrip().split("\n")
+                    print(f"    {spec.split('/')[1][:18]:18} title? {before[-1][-160:] if before else ''}")
 
 
 def chapter_meta(n: int) -> dict:
@@ -122,11 +132,24 @@ def chapter_text(spec: str, n: int) -> str:
     meta = chapter_meta(n)
     text = joined(spec, range(meta["leaves"][0], meta["leaves"][1] + 1))
     heads = [m for m in HEAD.finditer(text)]
-    start = next(m for m in heads if heb_value(m.group(1)) == n)
-    nxt = [m for m in heads if heb_value(m.group(1)) == n + 1]
+
+    def after_title(k: int):
+        """A reader may misread the chapter number (Flash: כז for כט): take the first heading
+        after the chapter's title."""
+        km = json.loads((DATA / "chapters.json").read_text(encoding="utf-8")).get(str(k))
+        if not km:
+            return None
+        i = text.find(" ".join(km["title_he"].split()[:3]))
+        return next((m for m in heads if i >= 0 and m.start() > i), None)
+
+    start = next((m for m in heads if heb_value(m.group(1)) == n), None) or after_title(n)
+    if start is None:
+        sys.exit(f"{spec}: no heading for chapter {n}")
+    nxt = [m for m in heads if heb_value(m.group(1)) == n + 1] or [m for m in [after_title(n + 1)] if m and m.start() > start.start()]
     body = text[start.end():nxt[0].start() if nxt else len(text)].strip()
     if nxt:  # drop the next chapter's title (some readers leave it out)
-        key = " ".join(json.loads((DATA / "chapters.json").read_text(encoding="utf-8"))[str(n + 1)]["title_he"].split()[:3])
+        nmeta = json.loads((DATA / "chapters.json").read_text(encoding="utf-8"))[str(n + 1)]
+        key = nmeta.get("strip_from") or " ".join(nmeta["title_he"].split()[:3])  # strip_from: a section heading
         i = body.rfind(key)
         if i >= 0 and len(body) - i < 400:
             body = body[:i]
@@ -325,7 +348,19 @@ def cmd_translate(n: int):
             sys.exit(res["error"])
         raw.parent.mkdir(exist_ok=True)
         raw.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-    d = json.loads(re.sub(r"^```(json)?|```$", "", res["text"].strip()).strip())
+    body = re.sub(r"^```(json)?|```$", "", res["text"].strip()).strip()
+    try:
+        d = json.loads(body)
+    except json.JSONDecodeError:
+        # Opus sometimes leaves quotation marks inside a string unescaped (ch. 23: ("Elilim")).
+        # The strings are one to a line: escape every quote between the line's first and last quote.
+        def fix(line: str) -> str:
+            m = re.match(r'^(\s*(?:"[a-z]+":\s*)?")(.*)("\s*[,\]}]?\s*,?)$', line)
+            if not m or line.strip().startswith(("{", "}", "[", "]")):
+                return line
+            return m.group(1) + re.sub(r'(?<!\\)"', r'\\"', m.group(2)) + m.group(3)
+        d = json.loads("\n".join(fix(l) for l in body.split("\n")))
+        print(f"chapter {n}: repaired unescaped quotes in the JSON")
     en, notes = d["en"], d.get("notes", [])
     if len(en) != len(he):
         sys.exit(f"{len(en)} English segments for {len(he)} Hebrew; see {raw}")
