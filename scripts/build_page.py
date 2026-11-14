@@ -20,6 +20,19 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parent.parent
 SCAN = "https://archive.org/details/sefermeorenayim00ross"
+REPO = "https://github.com/EzraBrand/meor-einayim"
+# set the saved theme before the first paint (no flash)
+THEME_JS = "<script>try{var t=localStorage.getItem('me-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>"
+
+
+def site_header(active: str = "") -> str:
+    links = [("index.html", "Chapters"), (REPO, "Code and data (GitHub)")]
+    nav = " ".join(f'<a href="{h}"{' aria-current="page"' if h == active else ''}>{t}</a>' for h, t in links)
+    nav += ('<label class="theme">Theme <select id="theme" aria-label="Colour theme">'
+            '<option value="">Auto</option><option value="light">Light</option><option value="paper">Paper</option>'
+            '<option value="dark">Dark</option></select></label>')
+    return (f'<header class="site"><a class="brand" href="index.html">Azariah de\' Rossi, <i>Me\'or Einayim</i> '
+            f'<span>· Hebrew and English</span></a><nav>{nav}</nav></header>')
 
 
 def read_blocks(path: Path):
@@ -85,17 +98,25 @@ def main() -> None:
         for k, v in notes.items()
     )
 
+    done = sorted(int(k) for k in json.loads((ROOT / "data" / "chapters.json").read_text(encoding="utf-8"))
+                  if (ROOT / "data" / f"imrei-binah-{int(k):02d}.en.txt").exists())
+    i = done.index(num)
+    prevnext = " · ".join(x for x in [
+        f'<a href="imrei-binah-{done[i - 1]:02d}.html" rel="prev">← Chapter {done[i - 1]}</a>' if i > 0 else "",
+        f'<a href="imrei-binah-{done[i + 1]:02d}.html" rel="next">Chapter {done[i + 1]} →</a>' if i + 1 < len(done) else ""] if x)
     page = f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)} — Azariah de' Rossi, Me'or Einayim</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={stamp('style.css')}">
+{THEME_JS}
 </head>
 <body>
-<header>
-<p class="crumb"><a href="index.html">Azariah de' Rossi, <i>Me'or Einayim</i></a> · Imrei Binah</p>
+{site_header()}
+<header class="chapter">
+<p class="crumb"><a href="index.html">All chapters</a> · Imrei Binah {num} · {prevnext}</p>
 <h1>{html.escape(title)}</h1>
 <p class="sub">{html.escape(subtitle)} · <span lang="he" dir="rtl">{html.escape(meta["title_he"])}</span></p>
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.
@@ -111,8 +132,9 @@ Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Se
 <ul class="notes">
 {note_rows}
 </ul>
-<p><a href="index.html">Back to the project page</a></p>
+<p>{prevnext} · <a href="index.html">All chapters</a> · <a href="{REPO}">Code and data (GitHub)</a></p>
 </footer>
+<script src="app.js?v={stamp('app.js')}"></script>
 </body>
 </html>
 """
@@ -121,6 +143,12 @@ Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Se
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out}: {len(he)} paragraphs, {seg} segments, {len(notes)} notes")
     write_index()
+
+
+def stamp(name: str) -> str:
+    """Short hash of a docs/ file, so a browser never pairs a new page with an old cached file."""
+    import hashlib
+    return hashlib.sha1((ROOT / "docs" / name).read_bytes()).hexdigest()[:8]
 
 
 def write_index() -> None:
@@ -132,6 +160,11 @@ def write_index() -> None:
     idx = ROOT / "docs" / "index.html"
     t = idx.read_text(encoding="utf-8")
     t = re.sub(r"(<tr><th>Chapter</th>.*?</tr>\n).*?(</table>)", lambda m: m.group(1) + rows + "\n" + m.group(2), t, flags=re.S)
+    # shared head and site header
+    t = re.sub(r'<link rel="stylesheet" href="style\.css[^"]*">\n(<script>try.*?</script>\n)?',
+               lambda m: f'<link rel="stylesheet" href="style.css?v={stamp("style.css")}">\n{THEME_JS}\n', t, count=1)
+    t = re.sub(r'<body>\n(<header class="site">.*?</header>\n)?', lambda m: "<body>\n" + site_header("index.html") + "\n", t, count=1)
+    t = re.sub(r'(<script src="app\.js[^"]*"></script>\n)?</body>', lambda m: f'<script src="app.js?v={stamp("app.js")}"></script>\n</body>', t, count=1)
     idx.write_text(t, encoding="utf-8")
 
 
