@@ -76,3 +76,9 @@ details.about { margin: .5em 0 .2em; }
 details.about summary { cursor: pointer; color: var(--muted); font: .85rem system-ui, sans-serif; }
 details.about summary:hover { color: var(--accent); }
 details.about[open] summary { margin-bottom: .3em; }
+
+/* scan thumbnails under the chapter heading, as the Bochart reader */
+.scans { display: flex; gap: .6rem; overflow-x: auto; padding: .5rem 0 .3rem; }
+.scans a { flex: 0 0 auto; text-align: center; text-decoration: none; font: .78rem system-ui, sans-serif; color: var(--muted); }
+.scans a:hover { color: var(--accent); }
+.scans img { display: block; width: 80px; height: auto; border: 1px solid var(--rule); background: #fff; margin-bottom: 2px; }

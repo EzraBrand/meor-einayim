@@ -105,6 +105,7 @@ def main() -> None:
     prevnext = " · ".join(x for x in [
         f'<a href="imrei-binah-{done[i - 1]:02d}.html" rel="prev">← Chapter {done[i - 1]}</a>' if i > 0 else "",
         f'<a href="imrei-binah-{done[i + 1]:02d}.html" rel="next">Chapter {done[i + 1]} →</a>' if i + 1 < len(done) else ""] if x)
+    thumbs = scan_thumbs(meta["leaves"])
     page = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -127,6 +128,7 @@ Text in <span class="ref">[gray brackets]</span> is added by the translator: ref
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
 Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), pages {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
 </details>
+<div class="scans" aria-label="Scans of the printed pages">{thumbs}</div>
 </header>
 <main>
 {chr(10).join(rows)}
@@ -147,6 +149,28 @@ Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Se
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out}: {len(he)} paragraphs, {seg} segments, {len(notes)} notes")
     write_index()
+
+
+def scan_thumbs(leaves) -> str:
+    """Thumbnails of the chapter's scan pages, each linking to the page in the archive.org viewer.
+    Made from the page images in source/pages/ and kept in docs/scans/ (archive.org's IIIF server
+    is too slow on some pages to serve them live). Printed page = scan leaf - 24."""
+    from PIL import Image
+    out = []
+    for leaf in range(leaves[0], leaves[1] + 1):
+        t = ROOT / "docs" / "scans" / f"{leaf}.jpg"
+        if not t.exists():
+            src = ROOT / "source" / "pages" / f"{leaf}.jpg"
+            if not src.exists():
+                continue
+            t.parent.mkdir(exist_ok=True)
+            im = Image.open(src).convert("RGB")
+            im.thumbnail((160, 400))
+            im.save(t, quality=70, optimize=True)
+        out.append(f'<a href="https://archive.org/details/sefermeorenayim00ross/page/n{leaf - 1}/mode/1up" target="_blank" '
+                   f'rel="noopener" title="Scan of page {leaf - 24} (archive.org)"><img loading="lazy" src="scans/{leaf}.jpg" '
+                   f'alt="Scan of page {leaf - 24}" width="80"><span>p. {leaf - 24}</span></a>')
+    return "".join(out)
 
 
 def stamp(name: str) -> str:
