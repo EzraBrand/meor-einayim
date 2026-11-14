@@ -31,7 +31,7 @@ IMG = "https://iiif.archive.org/iiif/sefermeorenayim00ross${leaf}/full/1600,/0/d
 
 OCR_PROMPT = """\
 This is one page of Azariah de' Rossi, Me'or Einayim (Vilna 1863-66 printing), in Hebrew. The page has \
-a running head, the main text in square Hebrew type, and the author's notes in a smaller Rashi-type column.
+a running head, the main text in square Hebrew type, and notes in a smaller Rashi-type column.
 
 Transcribe ONLY the main text in square type, in reading order, exactly as printed: keep the spelling, \
 abbreviations with their gershayim ("), punctuation, brackets, and chapter headings (for example \
