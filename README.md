@@ -8,7 +8,7 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 | Chapter | Status |
 |---|---|
-| Imrei Binah 16 (the gnat that entered the nostril of Titus) | Pilot, 13-Nov-2026. 119 segments. References not verified. 12 uncertain renderings. |
+| Imrei Binah 16 (the gnat that entered the nostril of Titus) | Pilot, 13-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
 | All other chapters | Not started |
 
 ## Sources
@@ -22,6 +22,23 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 - Complete: Joanna Weinberg, *The Light of the Eyes* (Yale Judaica Series 31, 2001). In copyright; not used for this draft.
 - Chapter 16: Latin in Bochart's *Hierozoicon*; English by Raphall, *Hebrew Review* vol. 2 (as listed in the Jewish Encyclopedia). Not yet compared.
+
+## Model test, 14-Nov-2026
+
+`scripts/model_eval.py` compares OpenRouter models on chapter 16 (results in `eval/`, not in the repository).
+
+| Task | Model | Cost | Result |
+|---|---|---|---|
+| OCR of the main text (7 pages) | Opus 5.5 @low | $0.047/page | 0.8% word error |
+| | Gemini 3.1 Pro | $0.019/page | 1.0% |
+| | Gemini 3.8 Flash | $0.004/page | 1.5% |
+| | Sonnet 5.5 | $0.024/page | 2.4% |
+| Translation (119 segments) | Opus 5.5 @low | $0.23/chapter | best: names, references, uncertain places |
+| | Sonnet 5.5, Gemini 3.1 Pro | $0.07-0.08 | accurate but plainer; Gemini Pro changed a printed number |
+| | Gemini Flash, DeepSeek V4 Pro, GPT-5.6 Terra, Haiku 5.5 | | invented identifications or broke the alignment |
+
+Choice: Opus OCR with Gemini Flash as a second reader (disagreements checked on the scan), and Opus translation.
+The test also found 10 errors in the chapter 16 Hebrew; they are corrected against the scan.
 
 ## Layout
 

@@ -71,8 +71,8 @@ def main() -> None:
             seg += 1
             rows.append(
                 f'<div class="row" id="s{seg}"><a class="ln" href="#s{seg}">{seg}</a>'
-                f'<p class="en">{fmt_en(el)}</p>'
-                f'<p class="he" lang="he" dir="rtl">{html.escape(hl, quote=False)}</p></div>'
+                f'<p class="he" lang="he" dir="rtl">{html.escape(hl, quote=False)}</p>'
+                f'<p class="en">{fmt_en(el)}</p></div>'
             )
         rows.append("</section>")
 
