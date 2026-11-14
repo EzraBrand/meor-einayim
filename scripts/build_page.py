@@ -32,8 +32,8 @@ def site_header(active: str = "") -> str:
     nav += ('<label class="theme">Theme <select id="theme" aria-label="Colour theme">'
             '<option value="">Auto</option><option value="light">Light</option><option value="paper">Paper</option>'
             '<option value="dark">Dark</option></select></label>')
-    return (f'<header class="site"><a class="brand" href="index.html">Azariah de\' Rossi, <i>Me\'or Einayim</i> '
-            f'<span>· Hebrew and English</span></a><nav>{nav}</nav></header>')
+    return (f'<header class="site"><div class="bar"><a class="brand" href="index.html">Azariah de\' Rossi, <i>Me\'or Einayim</i> '
+            f'<span>· Hebrew and English</span></a><nav>{nav}</nav></div></header>')
 
 
 def read_blocks(path: Path):
@@ -121,9 +121,10 @@ def main() -> None:
 <body>
 {site_header()}
 <header class="chapter">
-<p class="crumb"><a href="index.html">All chapters</a> · Imrei Binah {num} · {prevnext}</p>
+<nav class="crumb" aria-label="Chapters"><span><a href="index.html">All chapters</a> · Imrei Binah {num}</span><span class="pn">{prevnext.replace(" · ", " ")}</span></nav>
 <h1>{html.escape(title)}</h1>
-<p class="sub">{html.escape(subtitle)} · <span lang="he" dir="rtl">{html.escape(meta["title_he"])}</span></p>
+<p class="sub">{html.escape(subtitle)}</p>
+<p class="sub-he" lang="he" dir="rtl">{html.escape(meta["title_he"])}</p>
 <details class="about"><summary>About this text</summary>
 <p class="meta">{html.escape(meta["status"])}</p>
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.

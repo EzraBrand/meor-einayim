@@ -8,8 +8,9 @@
 :root[data-theme="paper"] { --bg: #f3ead6; --fg: #33291b; --muted: #75654c; --rule: #d9cbab; --accent: #8a4510; --hl: #ebdfc3; }
 
 /* site header, as the Bochart reader */
-header.site { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; align-items: baseline; justify-content: space-between;
-  max-width: none; padding: .7rem 16px; border-bottom: 1px solid var(--rule); font-size: .95rem; }
+header.site { max-width: none; padding: 0; border-bottom: 1px solid var(--rule); font-size: .95rem; }
+header.site .bar { max-width: 1100px; margin: 0 auto; padding: .7rem 16px; display: flex; flex-wrap: wrap;
+  gap: .4rem 1.5rem; align-items: baseline; justify-content: space-between; }
 header.site .brand { color: var(--fg); text-decoration: none; font-weight: 600; }
 header.site .brand span { color: var(--muted); font-weight: 400; }
 header.site nav { display: flex; flex-wrap: wrap; gap: .3rem 1rem; align-items: baseline; }
@@ -26,7 +27,7 @@ header.chapter, header.intro { padding-top: 20px; padding-bottom: 12px; border-b
 h1 { font-size: 1.9rem; margin: .2em 0 .1em; }
 h2 { font-size: 1.25rem; margin: 1.8em 0 .5em; }
 a { color: var(--accent); }
-.crumb, .meta, .sub { margin: .3em 0; }
+.crumb, .meta, .sub, .sub-he { margin: .3em 0; }
 .crumb, .meta { font-size: .88rem; color: var(--muted); }
 .sub { font-size: 1.1rem; }
 main { padding-top: 14px; padding-bottom: 40px; }
@@ -88,3 +89,15 @@ a.anchor { color: var(--muted); text-decoration: none; opacity: .35; padding-lef
 .blk:hover a.anchor, a.anchor:focus { opacity: 1; }
 section.blk:target { background: var(--hl); border-radius: 4px; }
 section.blk { scroll-margin-top: 12px; } .row { scroll-margin-top: 12px; }
+
+/* chapter navigation: all chapters on the left, previous / next on the right */
+nav.crumb { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; }
+nav.crumb .pn a { margin-left: .8rem; }
+/* the Hebrew title on its own line */
+.sub-he { font-family: "Noto Serif Hebrew", serif; font-size: 1.15rem; text-align: right; color: var(--fg); }
+@media (max-width: 720px) {
+  header.site .bar { justify-content: flex-start; }
+  header.site .brand span { display: none; }
+  header.site .bar { padding: .5rem 16px; gap: .2rem 1rem; }
+  nav.crumb .pn a { margin-left: 0; margin-right: .8rem; }
+}
