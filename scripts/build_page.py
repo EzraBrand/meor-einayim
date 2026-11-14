@@ -1,6 +1,8 @@
 """Build the side-by-side page for one chapter of Imrei Binah.
 
-Usage: py -3.13 scripts/build_page.py 16 "Chapter 16" "The gnat that entered the nostril of Titus"
+Usage: py -3.13 scripts/build_page.py 16
+The title, subtitle, Hebrew title, printed pages and status come from data/chapters.json.
+The script also rewrites the chapter table of docs/index.html from data/chapters.json.
 
 Inputs (in data/):
   imrei-binah-NN.he.txt      one Hebrew segment on each line; a blank line between paragraphs
@@ -43,7 +45,8 @@ def fmt_en(text: str) -> str:
 
 def main() -> None:
     num = int(sys.argv[1])
-    title, subtitle = sys.argv[2], sys.argv[3]
+    meta = json.loads((ROOT / "data" / "chapters.json").read_text(encoding="utf-8"))[str(num)]
+    title, subtitle = f"Imrei Binah, chapter {num}", meta["title_en"]
     stem = f"imrei-binah-{num:02d}"
     he = read_blocks(ROOT / "data" / f"{stem}.he.txt")
     en = read_blocks(ROOT / "data" / f"{stem}.en.txt")
@@ -94,11 +97,11 @@ def main() -> None:
 <header>
 <p class="crumb"><a href="index.html">Azariah de' Rossi, <i>Me'or Einayim</i></a> · Imrei Binah</p>
 <h1>{html.escape(title)}</h1>
-<p class="sub">{html.escape(subtitle)} · <span lang="he" dir="rtl">על מעשה היתוש אשר נכנס בחוטמו של טיטוס המסופר מרבותינו</span></p>
+<p class="sub">{html.escape(subtitle)} · <span lang="he" dir="rtl">{html.escape(meta["title_he"])}</span></p>
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
-Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (ed. David Cassel), pages 203–209, from the archive.org OCR, corrected against the page images. The author's notes in Rashi type are not included.</p>
+Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (ed. David Cassel), pages {meta["pages"]}, {meta["source_note"]} The author's notes in Rashi type are not included.</p>
 </header>
 <main>
 {chr(10).join(rows)}
@@ -117,6 +120,19 @@ Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (ed. David Cassel
     out.parent.mkdir(exist_ok=True)
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out}: {len(he)} paragraphs, {seg} segments, {len(notes)} notes")
+    write_index()
+
+
+def write_index() -> None:
+    chapters = json.loads((ROOT / "data" / "chapters.json").read_text(encoding="utf-8"))
+    rows = "\n".join(
+        f'<tr><td><a href="imrei-binah-{int(k):02d}.html">Imrei Binah {k}</a></td><td>{html.escape(v["title_en"])}</td>'
+        f'<td>{html.escape(v["status"])}</td></tr>'
+        for k, v in sorted(chapters.items(), key=lambda kv: int(kv[0])) if (ROOT / "docs" / f"imrei-binah-{int(k):02d}.html").exists())
+    idx = ROOT / "docs" / "index.html"
+    t = idx.read_text(encoding="utf-8")
+    t = re.sub(r"(<tr><th>Chapter</th>.*?</tr>\n).*?(</table>)", lambda m: m.group(1) + rows + "\n" + m.group(2), t, flags=re.S)
+    idx.write_text(t, encoding="utf-8")
 
 
 if __name__ == "__main__":

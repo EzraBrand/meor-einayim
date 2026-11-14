@@ -1,0 +1,79 @@
+{
+ "16": {
+  "title_en": "The gnat that entered the nostril of Titus",
+  "title_he": "על מעשה היתוש אשר נכנס בחוטמו של טיטוס המסופר מרבותינו",
+  "pages": "203–209",
+  "leaves": [
+   227,
+   233
+  ],
+  "source_note": "from the archive.org OCR, corrected against the page images.",
+  "status": "Pilot, 13-Nov-2026; Hebrew checked against the scan 14-Nov-2026. 119 segments. References not verified. 13 uncertain renderings."
+ },
+ "17": {
+  "title_en": "The saying that the early generations had children at the age of eight",
+  "title_he": "על מאמרם ז\"ל דורות הראשונים היו מולידים בני שמנה שנים.",
+  "pages": "209–214",
+  "leaves": [
+   233,
+   238
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 151 segments. References not verified. 12 uncertain renderings."
+ },
+ "18": {
+  "title_en": "The saying: Cyrus is Darius is Artaxerxes",
+  "title_he": "על מאמרם ז\"ל הוא כורש הוא דריוש הוא ארתחשסתא.",
+  "pages": "214–219",
+  "leaves": [
+   238,
+   243
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 143 segments. References not verified. 6 uncertain renderings."
+ },
+ "19": {
+  "title_en": "A note on the ancient Seder Olam: later additions, and other books that were tampered with",
+  "title_he": "הערה על הספר הקדמון סדר עולם שנוספו בו דברים מאיזה אחרון ושכן ספרים זולתו חלו בהם ידים.",
+  "pages": "219–225",
+  "leaves": [
+   243,
+   249
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 124 segments. References not verified. 7 uncertain renderings."
+ },
+ "20": {
+  "title_en": "The number of high priests in the Second Temple; the views of Rabbenu Tam and R. Isaac on the First Temple rejected",
+  "title_he": "תרוץ על קושי נגלה בדבריהם ז\"ל על מספר הכהנים הגדולים שהיו בבית שני, ודחיית דברי ר\"ת ור\"י על מספר אותם שהיו בבית ראשון.",
+  "pages": "225–229",
+  "leaves": [
+   249,
+   253
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 114 segments. References not verified. 5 uncertain renderings."
+ },
+ "21": {
+  "title_en": "Differences between the sages and Christian writers: the altar on Mount Gerizim, the image of the dove, and how many King Yannais there were",
+  "title_he": "השתניות אשר נמצאו בקצת ספורים בין חכמינו וסופרי הנוצרים וא\"ה וחרושים על דבר הבמה שהוקמה בראש הר גריזים, ועל דמות היונה שנמצא שם. וכמה ינאי המלך היו בפני הבית.",
+  "pages": "229–234",
+  "leaves": [
+   253,
+   258
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026, by models; not reviewed. 137 segments. References not verified. 10 uncertain renderings."
+ },
+ "22": {
+  "title_en": "Objections to Abraham ibn Daud and Don Isaac Abravanel on Simeon the Just, and whether there was more than one of that name",
+  "title_he": "השגות על הרא\"בד הלוי והשר דון יצחק בדבר שמעון הצדיק, ואם נמצא יותר מאחד בשם ההוא.",
+  "pages": "234–238",
+  "leaves": [
+   258,
+   262
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 14-Nov-2026. OCR and translation by models; not reviewed. References not verified."
+ }
+}

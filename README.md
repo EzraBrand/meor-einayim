@@ -8,7 +8,12 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 | Chapter | Status |
 |---|---|
-| Imrei Binah 16 (the gnat that entered the nostril of Titus) | Pilot, 13-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 16 (The gnat that entered the nostril of Titus) | Pilot, 13-Nov-2026; Hebrew checked against the scan 14-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 17 (The saying that the early generations had children at the age of eight) | Draft, 14-Nov-2026, by models; not reviewed. 151 segments. References not verified. 12 uncertain renderings. |
+| Imrei Binah 18 (The saying: Cyrus is Darius is Artaxerxes) | Draft, 14-Nov-2026, by models; not reviewed. 143 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 19 (A note on the ancient Seder Olam: later additions, and other books that were tampered with) | Draft, 14-Nov-2026, by models; not reviewed. 124 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 20 (The number of high priests in the Second Temple; the views of Rabbenu Tam and R. Isaac on the First Temple rejected) | Draft, 14-Nov-2026, by models; not reviewed. 114 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 21 (Differences between the sages and Christian writers: the altar on Mount Gerizim, the image of the dove, and how many King Yannais there were) | Draft, 14-Nov-2026, by models; not reviewed. 137 segments. References not verified. 10 uncertain renderings. |
 | All other chapters | Not started |
 
 ## Sources
@@ -53,9 +58,20 @@ The test also found 10 errors in the chapter 16 Hebrew; they are corrected again
 
 ## Build
 
+One chapter, in order (`scripts/pipeline.py` has the details):
+
 ```
-py -3.13 scripts/build_page.py 16 "Imrei Binah, chapter 16" "The gnat that entered the nostril of Titus"
+py -3.13 scripts/pipeline.py ocr 233 262                                     # Opus + Flash OCR of scan leaves 233-262
+py -3.13 scripts/pipeline.py ocr 233 262 --model google/gemini-3.1-pro-preview@low   # third reader
+py -3.13 scripts/pipeline.py chapters                                        # chapter headings found
+py -3.13 scripts/pipeline.py vote 17       # data/votes/17.json; read logs/crops/17/ and decide the 'check' items
+py -3.13 scripts/pipeline.py assemble 17   # data/imrei-binah-17.he.txt
+py -3.13 scripts/pipeline.py translate 17  # .en.txt + .notes.json (Opus 5.5); English fixes in data/en_fixes.json
+py -3.13 scripts/build_page.py 17          # docs/imrei-binah-17.html and the index
 ```
+
+Chapter titles, pages and status: `data/chapters.json`. The OCR of every reader is in `data/ocr/`.
+Cost of chapters 17-21 (26 pages, 14-Nov-2026): OCR $2.20, translation $1.10.
 
 `build_page.py` stops if the Hebrew and English segment counts do not agree, or if the ⚠ marks and the notes do not agree.
 
