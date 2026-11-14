@@ -130,7 +130,7 @@ def main() -> None:
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
 Fixed links: <code>#p3</code> is a paragraph (the ¶ at its end), <code>#s12</code> a segment (its number).
-Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), pages {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
+Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
 </details>
 <div class="scans" aria-label="Scans of the printed pages">{thumbs}</div>
 </header>
@@ -155,10 +155,19 @@ Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Se
     write_index()
 
 
+PART2 = 289  # scan leaf of page 1 of the edition's second part (Yemei Olam, Imrei Binah ch. 29)
+
+
+def printed(leaf: int) -> str:
+    """The printed page of a scan leaf: part 1 is leaf - 24 (leaf 288 = p. 264); part 2 starts its
+    own page count at leaf 289."""
+    return f"II p. {leaf - PART2 + 1}" if leaf >= PART2 else f"p. {leaf - 24}"
+
+
 def scan_thumbs(leaves) -> str:
     """Thumbnails of the chapter's scan pages, each linking to the page in the archive.org viewer.
     Made from the page images in source/pages/ and kept in docs/scans/ (archive.org's IIIF server
-    is too slow on some pages to serve them live). Printed page = scan leaf - 24."""
+    is too slow on some pages to serve them live). Printed pages: printed()."""
     from PIL import Image
     out = []
     for leaf in range(leaves[0], leaves[1] + 1):
@@ -172,8 +181,8 @@ def scan_thumbs(leaves) -> str:
             im.thumbnail((160, 400))
             im.save(t, quality=70, optimize=True)
         out.append(f'<a href="https://archive.org/details/sefermeorenayim00ross/page/n{leaf - 1}/mode/1up" target="_blank" '
-                   f'rel="noopener" title="Scan of page {leaf - 24} (archive.org)"><img loading="lazy" src="scans/{leaf}.jpg" '
-                   f'alt="Scan of page {leaf - 24}" width="80"><span>p. {leaf - 24}</span></a>')
+                   f'rel="noopener" title="Scan of {printed(leaf)} (archive.org)"><img loading="lazy" src="scans/{leaf}.jpg" '
+                   f'alt="Scan of {printed(leaf)}" width="80"><span>{printed(leaf)}</span></a>')
     return "".join(out)
 
 

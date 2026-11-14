@@ -25,6 +25,13 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 | Imrei Binah 30 (What Xenophon the Greek says about the two Cyruses, kings of Persia) | Draft, 14-Nov-2026, by models; not reviewed. 36 segments. References not verified. 9 uncertain renderings. |
 | Imrei Binah 31 (The words of Metasthenes the Persian in his book on the order of the times) | Draft, 14-Nov-2026, by models; not reviewed. 54 segments. References not verified. 7 uncertain renderings. |
 | Imrei Binah 32 (The Book of Times of Philo (Yedidyah) of Alexandria, translated from Greek into Latin and now into Hebrew) | Draft, 14-Nov-2026, by models; not reviewed. 97 segments. References not verified. 8 uncertain renderings. |
+| Imrei Binah 33 (The number of the Persian kings and of the high priests at the start of the Second Temple, from the Greek Josephus) | Draft, 14-Nov-2026, by models; not reviewed. 58 segments. References not verified. 4 uncertain renderings. |
+| Imrei Binah 34 (The number of the Persian kings and high priests at the start of the Second Temple, from Eusebius of Caesarea; also from Curtius and from the Christians' translator [Jerome]) | Draft, 14-Nov-2026, by models; not reviewed. 23 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 35 (The years of the world gathered from Scripture are uncertain, so the true count is longer than ours; yet our count, and the sages' words on it, are right in their own way) | Draft, 14-Nov-2026, by models; not reviewed. 487 segments. References not verified. 11 uncertain renderings. |
+| Imrei Binah 36 (Views that dispute the sages' count of the years of the Second Temple) | Draft, 14-Nov-2026, by models; not reviewed. 121 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 37 (An apparent difficulty in the sages' reckoning: the succession of the high priests) | Draft, 14-Nov-2026, by models; not reviewed. 154 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 38 (An apparent difficulty in the sages' reckoning: the succession of the Persian kings) | Draft, 14-Nov-2026, by models; not reviewed. 137 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 39 (An apparent difficulty in the sages' reckoning: the line of Jeconiah's descendants) | Draft, 14-Nov-2026, by models; not reviewed. 100 segments. References not verified. 6 uncertain renderings. |
 | All other chapters | Not started |
 
 ## Sources
@@ -82,7 +89,7 @@ py -3.13 scripts/build_page.py 17          # docs/imrei-binah-17.html and the in
 ```
 
 Chapter titles, pages and status: `data/chapters.json`. The OCR of every reader is in `data/ocr/`.
-Cost of chapters 17-21 (26 pages, 14-Nov-2026): OCR $2.20, translation $1.10. Chapters 22-32 (43 pages): OCR $2.77, translation $1.93.
+Cost (14-Nov-2026): chapters 17-21 (26 pages) OCR $2.20, translation $1.10; chapters 22-32 (43 pages) OCR $2.77, translation $1.93; chapters 33-39 (42 pages) translation $2.07, and OCR of leaves 301-360 $4.49 (the pages of chapter 40 included).
 
 `build_page.py` stops if the Hebrew and English segment counts do not agree, or if the ⚠ marks and the notes do not agree.
 

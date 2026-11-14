@@ -139,19 +139,25 @@ def chapter_text(spec: str, n: int) -> str:
         km = json.loads((DATA / "chapters.json").read_text(encoding="utf-8")).get(str(k))
         if not km:
             return None
-        i = text.find(" ".join(km["title_he"].split()[:3]))
-        return next((m for m in heads if i >= 0 and m.start() > i), None)
+        # up to 10 words of the title (chapters 37-39 share their first 6), with any spacing or
+        # punctuation between them (the readers differ there)
+        words = [re.escape(w.strip(".,:;•")) for w in km["title_he"].split()[:10] if w.strip(".,:;•")]
+        t = re.search(r"[\s.,:;•]+".join(words), text)
+        return next((m for m in heads if t and m.start() > t.start()), None)
 
-    start = next((m for m in heads if heb_value(m.group(1)) == n), None) or after_title(n)
+    # a chapter starts at the heading after its title; a reader can misread the number (Gemini Pro:
+    # לז for לו, Flash: כז for כט). Without the title (Opus sometimes leaves it out): by number.
+    start = after_title(n) or next((m for m in heads if heb_value(m.group(1)) == n), None)
     if start is None:
         sys.exit(f"{spec}: no heading for chapter {n}")
-    nxt = [m for m in heads if heb_value(m.group(1)) == n + 1] or [m for m in [after_title(n + 1)] if m and m.start() > start.start()]
+    nxt = [m for m in [after_title(n + 1)] if m and m.start() > start.start()] or \
+        [m for m in heads if heb_value(m.group(1)) == n + 1 and m.start() > start.start()]
     body = text[start.end():nxt[0].start() if nxt else len(text)].strip()
     if nxt:  # drop the next chapter's title (some readers leave it out)
         nmeta = json.loads((DATA / "chapters.json").read_text(encoding="utf-8"))[str(n + 1)]
         key = nmeta.get("strip_from") or " ".join(nmeta["title_he"].split()[:3])  # strip_from: a section heading
         i = body.rfind(key)
-        if i >= 0 and len(body) - i < 400:
+        if i >= 0 and len(body) - i < len(nmeta["title_he"]) + 200:  # ch. 35's title has 450 letters
             body = body[:i]
     return body.strip()
 
@@ -233,6 +239,9 @@ def vote(main: str, others: list[str]) -> list[dict]:
         agrees_main = [r for r in range(len(others)) if readings[r] is None and r not in overlap]
         if agrees_main:
             decision, reading = "main", " ".join(a[i1:i2])
+        elif i1 == i2 and i1 > 0 and all(x and x.split()[0] == a[i1 - 1] for x in readings if x):
+            # both Geminis repeat the word before (קמ"ג קמ"ג, הים הים: 12 times in tranches 2-3, never right)
+            decision, reading = "main", ""
         elif all(x is not None for x in readings) and len(set(readings)) == 1:
             decision, reading = "others", readings[0]
         else:
@@ -364,6 +373,8 @@ def cmd_translate(n: int):
         d = json.loads("\n".join(fix(l) for l in body.split("\n")))
         print(f"chapter {n}: repaired unescaped quotes in the JSON")
     en, notes = d["en"], d.get("notes", [])
+    for x in notes:  # ch. 37: a note came without its Hebrew words
+        x.setdefault("he", ""); x.setdefault("note", "")
     if len(en) != len(he):
         sys.exit(f"{len(en)} English segments for {len(he)} Hebrew; see {raw}")
     # English corrections after review: data/en_fixes.json {chapter: [[old, new], ...]}, applied to the
