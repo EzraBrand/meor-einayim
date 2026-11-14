@@ -82,3 +82,9 @@ details.about[open] summary { margin-bottom: .3em; }
 .scans a { flex: 0 0 auto; text-align: center; text-decoration: none; font: .78rem system-ui, sans-serif; color: var(--muted); }
 .scans a:hover { color: var(--accent); }
 .scans img { display: block; width: 80px; height: auto; border: 1px solid var(--rule); background: #fff; margin-bottom: 2px; }
+
+/* paragraph links (the ¶ at the end of each paragraph), as the Bochart reader */
+a.anchor { color: var(--muted); text-decoration: none; opacity: .35; padding-left: .2rem; }
+.blk:hover a.anchor, a.anchor:focus { opacity: 1; }
+section.blk:target { background: var(--hl); border-radius: 4px; }
+section.blk { scroll-margin-top: 12px; } .row { scroll-margin-top: 12px; }

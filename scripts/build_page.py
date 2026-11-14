@@ -82,14 +82,17 @@ def main() -> None:
         sys.exit("alignment errors; no page written")
 
     rows, seg = [], 0
-    for h, e in zip(he, en):
-        rows.append('<section class="blk prose">')
-        for hl, el in zip(h, e):
+    for pnum, (h, e) in enumerate(zip(he, en), 1):
+        rows.append(f'<section class="blk prose" id="p{pnum}">')
+        for j, (hl, el) in enumerate(zip(h, e)):
             seg += 1
+            # a fixed link to the paragraph, as the Bochart reader: the ¶ at its end (chapter.html#p3)
+            anchor = (f' <a class="anchor" href="#p{pnum}" title="Link to paragraph {pnum}" '
+                      f'aria-label="Link to paragraph {pnum}">¶</a>') if j == len(h) - 1 else ""
             rows.append(
-                f'<div class="row" id="s{seg}"><a class="ln" href="#s{seg}">{seg}</a>'
+                f'<div class="row" id="s{seg}"><a class="ln" href="#s{seg}" title="Link to segment {seg}">{seg}</a>'
                 f'<p class="he" lang="he" dir="rtl">{html.escape(hl, quote=False)}</p>'
-                f'<p class="en">{fmt_en(el)}</p></div>'
+                f'<p class="en">{fmt_en(el)}{anchor}</p></div>'
             )
         rows.append("</section>")
 
@@ -126,6 +129,7 @@ def main() -> None:
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
+Fixed links: <code>#p3</code> is a paragraph (the ¶ at its end), <code>#s12</code> a segment (its number).
 Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), pages {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
 </details>
 <div class="scans" aria-label="Scans of the printed pages">{thumbs}</div>
