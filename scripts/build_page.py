@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SCAN = "https://archive.org/details/sefermeorenayim00ross"
 REPO = "https://github.com/EzraBrand/meor-einayim"
 # set the saved theme before the first paint (no flash)
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Hebrew:wght@400;600&display=swap">\n'
 THEME_JS = "<script>try{var t=localStorage.getItem('me-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>"
 
 
@@ -110,7 +111,7 @@ def main() -> None:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)} — Azariah de' Rossi, Me'or Einayim</title>
-<link rel="stylesheet" href="style.css?v={stamp('style.css')}">
+{FONTS}<link rel="stylesheet" href="style.css?v={stamp('style.css')}">
 {THEME_JS}
 </head>
 <body>
@@ -163,6 +164,8 @@ def write_index() -> None:
     # shared head and site header
     t = re.sub(r'<link rel="stylesheet" href="style\.css[^"]*">\n(<script>try.*?</script>\n)?',
                lambda m: f'<link rel="stylesheet" href="style.css?v={stamp("style.css")}">\n{THEME_JS}\n', t, count=1)
+    if "fonts.googleapis.com" not in t:
+        t = t.replace('<link rel="stylesheet" href="style.css', FONTS + '<link rel="stylesheet" href="style.css', 1)
     t = re.sub(r'<body>\n(<header class="site">.*?</header>\n)?', lambda m: "<body>\n" + site_header("index.html") + "\n", t, count=1)
     t = re.sub(r'(<script src="app\.js[^"]*"></script>\n)?</body>', lambda m: f'<script src="app.js?v={stamp("app.js")}"></script>\n</body>', t, count=1)
     idx.write_text(t, encoding="utf-8")
