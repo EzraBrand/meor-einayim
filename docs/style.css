@@ -70,3 +70,9 @@ th { font: 600 .78rem system-ui, sans-serif; color: var(--muted); text-transform
   .ln { display: none; }
   .en { margin-top: 4px; }
 }
+
+/* "About this text": closed by default */
+details.about { margin: .5em 0 .2em; }
+details.about summary { cursor: pointer; color: var(--muted); font: .85rem system-ui, sans-serif; }
+details.about summary:hover { color: var(--accent); }
+details.about[open] summary { margin-bottom: .3em; }

@@ -120,10 +120,13 @@ def main() -> None:
 <p class="crumb"><a href="index.html">All chapters</a> · Imrei Binah {num} · {prevnext}</p>
 <h1>{html.escape(title)}</h1>
 <p class="sub">{html.escape(subtitle)} · <span lang="he" dir="rtl">{html.escape(meta["title_he"])}</span></p>
+<details class="about"><summary>About this text</summary>
+<p class="meta">{html.escape(meta["status"])}</p>
 <p class="meta">{seg} segments in {len(he)} paragraphs. The division into segments and paragraphs is the translator's.
 Text in <span class="ref">[gray brackets]</span> is added by the translator: references (not verified) and supplied words.
 <a class="warn" href="#notes">⚠</a> marks an uncertain rendering.
 Hebrew text: the <a href="{SCAN}">Vilna 1863–66 printing</a> (series Kiryat Sefer), pages {meta["pages"]}, {meta["source_note"]} The notes in Rashi type (additions by the author and by later scholars) are not included.</p>
+</details>
 </header>
 <main>
 {chr(10).join(rows)}
@@ -155,8 +158,7 @@ def stamp(name: str) -> str:
 def write_index() -> None:
     chapters = json.loads((ROOT / "data" / "chapters.json").read_text(encoding="utf-8"))
     rows = "\n".join(
-        f'<tr><td><a href="imrei-binah-{int(k):02d}.html">Imrei Binah {k}</a></td><td>{html.escape(v["title_en"])}</td>'
-        f'<td>{html.escape(v["status"])}</td></tr>'
+        f'<tr><td><a href="imrei-binah-{int(k):02d}.html">Imrei Binah {k}</a></td><td>{html.escape(v["title_en"])}</td></tr>'
         for k, v in sorted(chapters.items(), key=lambda kv: int(kv[0])) if (ROOT / "docs" / f"imrei-binah-{int(k):02d}.html").exists())
     idx = ROOT / "docs" / "index.html"
     t = idx.read_text(encoding="utf-8")

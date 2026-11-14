@@ -325,6 +325,8 @@ If you think a number is wrong, keep it and say so in a note.
 - European authors and works written in Hebrew letters: give the usual English or Latin form ONLY \
 if you are sure of the identification; otherwise transliterate the Hebrew and add a note. Never guess \
 a name.
+- Do not call a spelling a misprint and do not emend it: the author's Hebrew has variant forms of \
+its own (for example רתוי for ראוי). Translate the sense; add a note only when the meaning itself is unclear.
 - Where the reading or the sense is uncertain, end the segment with "⚠" and add a note: \
 {{"seg": <segment number>, "he": "<the Hebrew words concerned>", "note": "<one or two sentences>"}}.
 - The chapter title above is not one of the segments.

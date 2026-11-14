@@ -1,4 +1,4 @@
-# Azariah de' Rossi, *Me'or Einayim*: an English translation, pilot
+# Azariah de' Rossi, *Me'or Einayim*: Hebrew and English
 
 Site: <https://ezrabrand.github.io/meor-einayim/>
 
@@ -8,7 +8,7 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 | Chapter | Status |
 |---|---|
-| Imrei Binah 16 (The gnat that entered the nostril of Titus) | Pilot, 13-Nov-2026; Hebrew checked against the scan 14-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 16 (The gnat that entered the nostril of Titus) | Translated 13-Nov-2026; Hebrew checked against the scan by hand, 14-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
 | Imrei Binah 17 (The saying that the early generations had children at the age of eight) | Draft, 14-Nov-2026, by models; not reviewed. 151 segments. References not verified. 12 uncertain renderings. |
 | Imrei Binah 18 (The saying: Cyrus is Darius is Artaxerxes) | Draft, 14-Nov-2026, by models; not reviewed. 143 segments. References not verified. 6 uncertain renderings. |
 | Imrei Binah 19 (A note on the ancient Seder Olam: later additions, and other books that were tampered with) | Draft, 14-Nov-2026, by models; not reviewed. 124 segments. References not verified. 7 uncertain renderings. |
@@ -95,3 +95,7 @@ Cost of chapters 17-21 (26 pages, 14-Nov-2026): OCR $2.20, translation $1.10. Ch
 ## Credits
 
 The English draft is by Claude (Anthropic), directed and reviewed by Ezra Brand.
+
+## License
+
+MIT (see `LICENSE`): the code, the Hebrew transcription and the English translation in this repository.
