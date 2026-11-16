@@ -267,12 +267,398 @@
  "40": {
   "title_en": "Answers on behalf of the sages to the objections above",
   "title_he": "תשובות בעד רבותינו על ההשגות שנזכרו:",
-  "pages": "part 2, pages 53–72",
+  "pages": "part 2, pages 53–79",
   "leaves": [
    341,
-   360
+   367
   ],
   "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
-  "status": "Draft, 14-Nov-2026, by models; not reviewed. References not verified."
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 630 segments. References not verified. 19 uncertain renderings."
+ },
+ "1": {
+  "title_en": "The first section begins (the chapter has no title in the print)",
+  "title_he": "",
+  "pages": "pages 65–68",
+  "leaves": [
+   89,
+   92
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 85 segments. References not verified. 3 uncertain renderings.",
+  "strip_from": null
+ },
+ "2": {
+  "title_en": "Why the author had to bring in the testimony of writers who are not of our people",
+  "title_he": "הכרח הביאנו בקצת דברים עדות סופרים אשר לא מעמנו.",
+  "pages": "pages 68–76",
+  "leaves": [
+   92,
+   100
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 199 segments. References not verified. 8 uncertain renderings."
+ },
+ "3": {
+  "title_en": "What we are to make of Philo (Yedidyah) of Alexandria, who is also cited on some of these questions; with a preface on the Jewish sects of the Second Temple",
+  "title_he": "ידידיה האלכסנדרי הנקרא גם הוא לדבר בקצת הדרושים האלה מה טיבו אצלנו. ובהצעה לזה ידובר על כתות היהודים אשר נמצאו בבית שני.",
+  "pages": "pages 76–82",
+  "leaves": [
+   100,
+   106
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 145 segments. References not verified. 7 uncertain renderings."
+ },
+ "4": {
+  "title_en": "The good things in Philo that agree with our Torah",
+  "title_he": "הדברים הטובים אשר נמצאו בידידיה הנזכר נאותים לתורתנו.",
+  "pages": "pages 82–92",
+  "leaves": [
+   106,
+   116
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 271 segments. References not verified. 16 uncertain renderings."
+ },
+ "5": {
+  "title_en": "Four signs of blemish that can be laid against Philo, where he does not agree with our Torah",
+  "title_he": "ארבע מראות נגעים אפשריים ליחס אל ידידיה הנזכר אשר לא כתורתנו.",
+  "pages": "pages 92–102",
+  "leaves": [
+   116,
+   126
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 271 segments. References not verified. 7 uncertain renderings."
+ },
+ "6": {
+  "title_en": "A possible defence of Philo against all that is charged against him, and our verdict",
+  "title_he": "התנצלות אפשרי בעד ידידיה הנזכר על כל הנאמר לאשמה בו ומה גמרנו עליו אומר.",
+  "pages": "pages 102–113",
+  "leaves": [
+   126,
+   137
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 256 segments. References not verified. 11 uncertain renderings."
+ },
+ "7": {
+  "title_en": "What the sages and some outside writers besides Aristeas record of the translation of the Elders (the Septuagint), and where they differ and agree",
+  "title_he": "הזכרון הנמצא לרבותינו על מעשה העתקת הזקנים וכן לכמה סופרים חיצוניים לבד מאריס\"טיאה שכבר העתקנו ספרו, ובמה נפרדו ובמה הסכימו.",
+  "pages": "pages 113–119",
+  "leaves": [
+   137,
+   143
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 156 segments. References not verified. 10 uncertain renderings."
+ },
+ "8": {
+  "title_en": "Where the many differences between the Septuagint, and those who follow it, and the true text of Scripture come from",
+  "title_he": "מאין באו כמה הפרדות אשר תמצאנה בין העתקת השבעים והנמשכים אחריהם לדברים המצודקים אשר בכתבי הקדש.",
+  "pages": "pages 119–126",
+  "leaves": [
+   143,
+   150
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 167 segments. References not verified. 8 uncertain renderings."
+ },
+ "9": {
+  "title_en": "A better answer to the difficulty just mentioned",
+  "title_he": "הישר עוד אצלנו לתרוץ הקושי שזכרנו.",
+  "pages": "pages 126–136",
+  "leaves": [
+   150,
+   160
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 220 segments. References not verified. 13 uncertain renderings."
+ },
+ "10": {
+  "title_en": "The questions of Alexander of Macedon to the elders of the South, recorded by the sages in tractate Tamid, and how Plutarch, an ancient writer of the nations, records them",
+  "title_he": "שאלות אלכסנדרוס מוקדון את זקני הנגב שזכרום רבותינו במסכת תמיד איך כתבם הסופר הקדמון באומות העולם פלוטארקו.",
+  "pages": "pages 136–138",
+  "leaves": [
+   160,
+   162
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 66 segments. References not verified. 6 uncertain renderings."
+ },
+ "11": {
+  "title_en": "The sages keep their honour even where men of learning and experience depart from what they wrote on natural things: they spoke of these not as of the law, by tradition from Sinai, but by human knowledge",
+  "title_he": "כבוד חכמינו לעולם ינחלו עם המצא לעת כיום אנשי התבונה והנסיון נוטים מקצת דבריהם אשר כתבו על עצמי קצת נמצאות ומקריהן. כי הנה לא דברו בם כמו בדיני התורה על פי מסורת מסיני וקבלה נבואיית אשר לה בודאי בלתי הרהור ומחקר תכרע כל ברך, אבל כפי חכמת האדם והשערתו והיא היתה המפורסמת למעיינים בימים או בגלילות ההמה, לבד מהיות גם כן אפשר כי דבריהם בכל או בקצת ייטיבו מאלה. יהי מה לא נמשוך אותם בעבותות אהבה להפצירם שיאמרו הנכר לנו שלא כונו, כי זה יביא המרגיש אל צד הקלה, ונתפס במזמות רעי איוב אשר לא דברו נכונה. וכבר הם עצמם הודיעונו כי חנפי לב ישימו אף.",
+  "pages": "pages 138–166",
+  "leaves": [
+   162,
+   190
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 683 segments. References not verified. 18 uncertain renderings."
+ },
+ "12": {
+  "title_en": "An apparent contradiction in the sages' words on who destroyed the Jews of Alexandria in Egypt; Don Isaac Abravanel's answer, and ours",
+  "title_he": "סתירה נראית בדבריהם ז\"ל ברצותם להגיד לנו מי הכרית את היהודים מאלכסנדריאה של מצרים. ותירוץ השר דון יצחק ז\"ל, והנראה לנו עליה.",
+  "pages": "pages 166–175",
+  "leaves": [
+   190,
+   199
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 233 segments. References not verified. 10 uncertain renderings."
+ },
+ "13": {
+  "title_en": "How the vast numbers the sages record could have perished or been exiled from Jerusalem, Alexandria and Betar, if they were only of Judah and Benjamin; and whether the ten tribes returned in Josiah's days",
+  "title_he": "איך יתכן שאבדו וגלו מירושלם ואלכסנדריאה וביתר כל הסכים המופלאים אשר זכרו רבותינו — אחרי היותם לבד משבט יהודה ובנימן, ואם יש לומר שעשרת השבטים שבו בימי יאשיהו.",
+  "pages": "pages 175–185",
+  "leaves": [
+   199,
+   209
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 208 segments. References not verified. 7 uncertain renderings."
+ },
+ "14": {
+  "title_en": "Disagreements of many later commentators with the sages on the meaning of some verses, though we should not think they saw more than the sages did",
+  "title_he": "מחלוקות אשר נמצאו לרבים ממפרשינו האחרונים ז\"ל על דברי החכמים בבאור קצת מכתבי הקדש, ויקשה כי הלא אין לחשוב שראו יותר מהמה:",
+  "pages": "pages 185–190",
+  "leaves": [
+   209,
+   214
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 131 segments. References not verified. 4 uncertain renderings."
+ },
+ "15": {
+  "title_en": "The sages drew many verses in their midrashim to other purposes, not as their true meaning; whoever objects to midrash from the plain sense, or takes midrash as plain sense, misreads them; and the difficulty in the sages' praise of aggadah",
+  "title_he": "רבותינו במדרשיהם הוציאו כתובים רבים לכונות שונות, לא על דעת שהן אמתת פרושיהם אבל להרבות למודים ולתת גם כן להם זכרון עם מונח קיים שאינם יוצאים מדי פשוטם. ובכן כל המקשה מן הפשט למדרש או יאמין המדרש פשט, הנו מיחס אליהם מה שלא דמו. ויותר קושי אשר בדבריהם ז\"ל על שבח האגדות.",
+  "pages": "pages 190–203",
+  "leaves": [
+   214,
+   227
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 325 segments. References not verified. 9 uncertain renderings."
+ },
+ "41": {
+  "title_en": "No reckoning of the years of the Second Temple by any writer is certain; a note on their number from the angel's words to Daniel on the seventy weeks",
+  "title_he": "שאין אצלנו אמונה ודאית בשום חשבון נמצא לאיזה סופר בשנות בית שני, ושאפשר לקחת הערה על מספרם מדברי המלאך לדניאל בשבועים השבעים:",
+  "pages": "part 2, pages 79–84",
+  "leaves": [
+   367,
+   372
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 120 segments. References not verified. 5 uncertain renderings."
+ },
+ "42": {
+  "title_en": "Conversations between the author and his friend on doubts about our count of the years of Creation",
+  "title_he": "ספורים בין המחבר וידידו לענין המטיל ספק בשנות היצירה למניננו.",
+  "pages": "part 2, pages 84–96",
+  "leaves": [
+   372,
+   384
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 234 segments. References not verified. 9 uncertain renderings."
+ },
+ "43": {
+  "title_en": "The coming of the Messiah is not to be expected in the year [5]335 more than in any other: from now on all times are alike for it, as God wills",
+  "title_he": "שאין להוחיל ביאת המשיח בשנת של\"ה יותר מכל שאר השנים אבל מהיום ולעולם כל הזמנים שוים בו לרצון אלהינו.",
+  "pages": "part 2, pages 96–107",
+  "leaves": [
+   384,
+   395
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 268 segments. References not verified. 7 uncertain renderings."
+ },
+ "44": {
+  "title_en": "On the saying: the world exists for six thousand years and for one it lies desolate",
+  "title_he": "על מאמר שית אלפי שנין הוי עלמא וחד חריב:",
+  "pages": "part 2, pages 107–112",
+  "leaves": [
+   395,
+   400
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 86 segments. References not verified. 13 uncertain renderings."
+ },
+ "45": {
+  "title_en": "The difference between Onkelos and Aquila; Aquila translated only into Greek, and he is the Aquila well known as a translator among the nations; there were two of each",
+  "title_he": "בהפרש אשר באונקלוס לעקילס, ואיך עקילס לא תרגם אלא ביוני; ושהוא אקוי\"לה המפורסם למעתיק אצל האומות, ושני אונקלוס ושני אקוי\"לה היו.",
+  "pages": "part 2, pages 112–121",
+  "leaves": [
+   400,
+   409
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 235 segments. References not verified. 13 uncertain renderings."
+ },
+ "46": {
+  "title_en": "Disagreements of our commentators on the form of the priestly garments",
+  "title_he": "מחלוקות מפרשינו על תמונת בגדי הכהונה:",
+  "pages": "part 2, pages 121–129",
+  "leaves": [
+   409,
+   417
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 205 segments. References not verified. 4 uncertain renderings."
+ },
+ "47": {
+  "title_en": "What comes out of Aristeas on the form of some of the priestly garments",
+  "title_he": "היוצא מדברי אריסטיאה על תמונת קצת בגדי הכהונה:",
+  "pages": "part 2, pages 129–131",
+  "leaves": [
+   417,
+   419
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 53 segments. References not verified. 6 uncertain renderings."
+ },
+ "48": {
+  "title_en": "What comes out of Philo of Alexandria on the form of some of the priestly garments",
+  "title_he": "היוצא מדברי ידידיה האלכסנדרי על תמונת קצת בגדי הכהונה.",
+  "pages": "part 2, pages 131–134",
+  "leaves": [
+   419,
+   422
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 74 segments. References not verified. 9 uncertain renderings."
+ },
+ "49": {
+  "title_en": "What comes out of the Greek Josephus on the form of some of the priestly garments",
+  "title_he": "היוצא מדברי היוסיפון לרומיים על תמונת קצת בגדי הכהונה:",
+  "pages": "part 2, pages 134–137",
+  "leaves": [
+   422,
+   425
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 89 segments. References not verified. 6 uncertain renderings."
+ },
+ "50": {
+  "title_en": "What comes out of the Christian scholars on the form of some of the priestly garments, and what seems right to draw from the sages in keeping with Scripture and the witnesses cited",
+  "title_he": "היוצא מדברי חכמי הנוצרים על תמונת קצת בגדי הכהונה, והנראה נכון להוציא מדברי רבותינו נאותים לכתובים וכן מעדות המגידים שזכרנו:",
+  "pages": "part 2, pages 137–146",
+  "leaves": [
+   425,
+   434
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 206 segments. References not verified. 10 uncertain renderings."
+ },
+ "51": {
+  "title_en": "On the prophet Haggai: the glory of this latter house shall be greater than that of the former",
+  "title_he": "על דבר חגי הנביא: גדול יהיה כבוד הבית הזה האחרון מן הראשון.",
+  "pages": "part 2, pages 146–162",
+  "leaves": [
+   434,
+   450
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 385 segments. References not verified. 24 uncertain renderings."
+ },
+ "52": {
+  "title_en": "How Helena, queen of Adiabene, and her sons became Jews, from the Greek Josephus, Antiquities book 2, ch. 2; ending with the false prophet called Theudas",
+  "title_he": "איך הילני מלכת האידיאביני ובניה התיהדו, מדברי היוסיפון לרומיים ספר ב' פרק ב' מן הקדמוניות, וסיום הפרק בנביא השקר נקרא תודה:",
+  "pages": "part 2, pages 162–171",
+  "leaves": [
+   450,
+   459
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 240 segments. References not verified. 6 uncertain renderings."
+ },
+ "53": {
+  "title_en": "The Greek Josephus on the number of all the high priests from Aaron to the destruction of the Temple",
+  "title_he": "דברי היוסיפון לרומיים על מספר כל הכהנים גדולים שנהיו מאהרן הכהן עד חרבן הבית שיבנה במהרה בימינו:",
+  "pages": "part 2, pages 171–173",
+  "leaves": [
+   459,
+   461
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 49 segments. References not verified. 5 uncertain renderings."
+ },
+ "54": {
+  "title_en": "On the signs that sometimes appear before great good or evil",
+  "title_he": "על האותות אשר יתראו לפעמים על טובות גדולות או רעות שתבאנה:",
+  "pages": "part 2, pages 173–175",
+  "leaves": [
+   461,
+   463
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 59 segments. References not verified. 9 uncertain renderings."
+ },
+ "55": {
+  "title_en": "How the Jews, by the prophets and the custom of their fathers, always pray for the peace of the kings who rule them, and in our exile for all the kingdoms",
+  "title_he": "איך היהודים על פי הנביאים ומנהג אבות יתפללו תמיד על שלום המלכים הרודים בהם, ובגלותנו זה יתפללו על המלכיות כלן שיתן ה' בינותם שלום ושקט:",
+  "pages": "part 2, pages 175–178",
+  "leaves": [
+   463,
+   466
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 79 segments. References not verified. 7 uncertain renderings."
+ },
+ "56": {
+  "title_en": "On the letters of the ancient Hebrew script, and the holy shekel",
+  "title_he": "על האותיות של כתב עבר הנהר ושקל הקדש:",
+  "pages": "part 2, pages 178–182",
+  "leaves": [
+   466,
+   470
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 83 segments. References not verified. 7 uncertain renderings."
+ },
+ "57": {
+  "title_en": "On the antiquity of the holy tongue, and the use of Aramaic among our people",
+  "title_he": "על קדמות לשון הקדש ומנהג לשון הארמי בעמנו.",
+  "pages": "part 2, pages 182–193",
+  "leaves": [
+   470,
+   481
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 306 segments. References not verified. 12 uncertain renderings."
+ },
+ "58": {
+  "title_en": "On the antiquity of the letters of the holy tongue",
+  "title_he": "על קדמות האותיות אשר ללשון הקדש.",
+  "pages": "part 2, pages 193–199",
+  "leaves": [
+   481,
+   487
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 147 segments. References not verified. 8 uncertain renderings."
+ },
+ "59": {
+  "title_en": "On the antiquity of the vowel points and accents of the holy tongue",
+  "title_he": "על קדמות הנקודות והטעמים אשר ללשון הקדש.",
+  "pages": "part 2, pages 199–206",
+  "leaves": [
+   487,
+   494
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 160 segments. References not verified. 5 uncertain renderings."
+ },
+ "60": {
+  "title_en": "On poems composed in the holy tongue",
+  "title_he": "על השירים המחוברים בלשון הקודש",
+  "pages": "part 2, pages 206–216",
+  "leaves": [
+   494,
+   504
+  ],
+  "source_note": "OCR by three models (Opus 5.5, Gemini 3.8 Flash, Gemini 3.1 Pro) from the page images; where they disagree, a vote or a check on the scan.",
+  "status": "Draft, 16-Nov-2026, by models; not reviewed. 232 segments. References not verified. 7 uncertain renderings."
  }
 }

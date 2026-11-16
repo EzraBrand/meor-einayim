@@ -1,0 +1,42 @@
+{
+ "1": {
+  "he": "שנת ק\"ה",
+  "note": "Presumably [5]105 = 1345 CE; the author gives only the abbreviated year."
+ },
+ "2": {
+  "he": "בנ\"ב מפרקי אלה",
+  "note": "Refers to chapter 52 of Imrei Binah, as the author numbers it."
+ },
+ "3": {
+  "he": "מפסקי\"ירה",
+  "note": "Posquières; i.e., not R. Abraham ben David of Posquières, author of the Hassagot on Maimonides."
+ },
+ "4": {
+  "he": "ספר יסוד עולם",
+  "note": "The astronomical work of Isaac Israeli of Toledo. 'Don Isaac' is Abravanel."
+ },
+ "5": {
+  "he": "כדברי ריש לקיש",
+  "note": "The attribution of the thirteen changes to Resh Laqish is not evident in the sources cited; the author's attribution is kept as given."
+ },
+ "6": {
+  "he": "מא\"ה פלוטר\"קו בחייו סי' ל\"ג",
+  "note": "The abbreviation מא\"ה and the specific 'Life' referred to are unclear; the reference may be to a Life in Plutarch's Parallel Lives. The text is kept as given."
+ },
+ "7": {
+  "he": "ובחמישי מספר דברי הימים לקיסרי פרק ו'",
+  "note": "Irenaeus's account is quoted in Eusebius, Ecclesiastical History, 5.8 in modern editions; the author's chapter number is kept."
+ },
+ "8": {
+  "he": "ההגמון מונדוניי\"טו",
+  "note": "This bishop cannot be identified with certainty, so the name is transliterated. 'ביריחונית' means Jerome's (Hieronymian) version, i.e., the Vulgate."
+ },
+ "9": {
+  "he": "איבגובי\"נו במהדורא שלו",
+  "note": "Probably Agostino Steuco (Eugubinus) and his Recognitio Veteris Testamenti; the identification is likely but is flagged as such."
+ },
+ "10": {
+  "he": "כמוכות",
+  "note": "The form is unclear; from context it appears to mean 'supports' (perhaps for סמוכות), and it is translated in that sense."
+ }
+}

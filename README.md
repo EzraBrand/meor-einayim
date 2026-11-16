@@ -2,12 +2,27 @@
 
 Site: <https://ezrabrand.github.io/meor-einayim/>
 
-Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573–75. This repository holds a segment-aligned Hebrew and English text of one chapter, and the script that builds the side-by-side page.
+Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573–75. This repository holds a segment-aligned Hebrew and English text of its third and longest part, Imrei Binah (chapters 1-60), and the scripts that build the side-by-side pages. The drafts are made by models and are not reviewed.
 
 ## Status
 
 | Chapter | Status |
 |---|---|
+| Imrei Binah 1 (The first section begins (the chapter has no title in the print)) | Draft, 16-Nov-2026, by models; not reviewed. 85 segments. References not verified. 3 uncertain renderings. |
+| Imrei Binah 2 (Why the author had to bring in the testimony of writers who are not of our people) | Draft, 16-Nov-2026, by models; not reviewed. 199 segments. References not verified. 8 uncertain renderings. |
+| Imrei Binah 3 (What we are to make of Philo (Yedidyah) of Alexandria, who is also cited on some of these questions; with a preface on the Jewish sects of the Second Temple) | Draft, 16-Nov-2026, by models; not reviewed. 145 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 4 (The good things in Philo that agree with our Torah) | Draft, 16-Nov-2026, by models; not reviewed. 271 segments. References not verified. 16 uncertain renderings. |
+| Imrei Binah 5 (Four signs of blemish that can be laid against Philo, where he does not agree with our Torah) | Draft, 16-Nov-2026, by models; not reviewed. 271 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 6 (A possible defence of Philo against all that is charged against him, and our verdict) | Draft, 16-Nov-2026, by models; not reviewed. 256 segments. References not verified. 11 uncertain renderings. |
+| Imrei Binah 7 (What the sages and some outside writers besides Aristeas record of the translation of the Elders (the Septuagint), and where they differ and agree) | Draft, 16-Nov-2026, by models; not reviewed. 156 segments. References not verified. 10 uncertain renderings. |
+| Imrei Binah 8 (Where the many differences between the Septuagint, and those who follow it, and the true text of Scripture come from) | Draft, 16-Nov-2026, by models; not reviewed. 167 segments. References not verified. 8 uncertain renderings. |
+| Imrei Binah 9 (A better answer to the difficulty just mentioned) | Draft, 16-Nov-2026, by models; not reviewed. 220 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 10 (The questions of Alexander of Macedon to the elders of the South, recorded by the sages in tractate Tamid, and how Plutarch, an ancient writer of the nations, records them) | Draft, 16-Nov-2026, by models; not reviewed. 66 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 11 (The sages keep their honour even where men of learning and experience depart from what they wrote on natural things: they spoke of these not as of the law, by tradition from Sinai, but by human knowledge) | Draft, 16-Nov-2026, by models; not reviewed. 683 segments. References not verified. 18 uncertain renderings. |
+| Imrei Binah 12 (An apparent contradiction in the sages' words on who destroyed the Jews of Alexandria in Egypt; Don Isaac Abravanel's answer, and ours) | Draft, 16-Nov-2026, by models; not reviewed. 233 segments. References not verified. 10 uncertain renderings. |
+| Imrei Binah 13 (How the vast numbers the sages record could have perished or been exiled from Jerusalem, Alexandria and Betar, if they were only of Judah and Benjamin; and whether the ten tribes returned in Josiah's days) | Draft, 16-Nov-2026, by models; not reviewed. 208 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 14 (Disagreements of many later commentators with the sages on the meaning of some verses, though we should not think they saw more than the sages did) | Draft, 16-Nov-2026, by models; not reviewed. 131 segments. References not verified. 4 uncertain renderings. |
+| Imrei Binah 15 (The sages drew many verses in their midrashim to other purposes, not as their true meaning; whoever objects to midrash from the plain sense, or takes midrash as plain sense, misreads them; and the difficulty in the sages' praise of aggadah) | Draft, 16-Nov-2026, by models; not reviewed. 325 segments. References not verified. 9 uncertain renderings. |
 | Imrei Binah 16 (The gnat that entered the nostril of Titus) | Translated 13-Nov-2026; Hebrew checked against the scan by hand, 14-Nov-2026. 119 segments. References not verified. 13 uncertain renderings. |
 | Imrei Binah 17 (The saying that the early generations had children at the age of eight) | Draft, 14-Nov-2026, by models; not reviewed. 151 segments. References not verified. 12 uncertain renderings. |
 | Imrei Binah 18 (The saying: Cyrus is Darius is Artaxerxes) | Draft, 14-Nov-2026, by models; not reviewed. 143 segments. References not verified. 6 uncertain renderings. |
@@ -32,7 +47,27 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 | Imrei Binah 37 (An apparent difficulty in the sages' reckoning: the succession of the high priests) | Draft, 14-Nov-2026, by models; not reviewed. 154 segments. References not verified. 5 uncertain renderings. |
 | Imrei Binah 38 (An apparent difficulty in the sages' reckoning: the succession of the Persian kings) | Draft, 14-Nov-2026, by models; not reviewed. 137 segments. References not verified. 7 uncertain renderings. |
 | Imrei Binah 39 (An apparent difficulty in the sages' reckoning: the line of Jeconiah's descendants) | Draft, 14-Nov-2026, by models; not reviewed. 100 segments. References not verified. 6 uncertain renderings. |
-| All other chapters | Not started |
+| Imrei Binah 40 (Answers on behalf of the sages to the objections above) | Draft, 16-Nov-2026, by models; not reviewed. 630 segments. References not verified. 19 uncertain renderings. |
+| Imrei Binah 41 (No reckoning of the years of the Second Temple by any writer is certain; a note on their number from the angel's words to Daniel on the seventy weeks) | Draft, 16-Nov-2026, by models; not reviewed. 120 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 42 (Conversations between the author and his friend on doubts about our count of the years of Creation) | Draft, 16-Nov-2026, by models; not reviewed. 234 segments. References not verified. 9 uncertain renderings. |
+| Imrei Binah 43 (The coming of the Messiah is not to be expected in the year [5]335 more than in any other: from now on all times are alike for it, as God wills) | Draft, 16-Nov-2026, by models; not reviewed. 268 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 44 (On the saying: the world exists for six thousand years and for one it lies desolate) | Draft, 16-Nov-2026, by models; not reviewed. 86 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 45 (The difference between Onkelos and Aquila; Aquila translated only into Greek, and he is the Aquila well known as a translator among the nations; there were two of each) | Draft, 16-Nov-2026, by models; not reviewed. 235 segments. References not verified. 13 uncertain renderings. |
+| Imrei Binah 46 (Disagreements of our commentators on the form of the priestly garments) | Draft, 16-Nov-2026, by models; not reviewed. 205 segments. References not verified. 4 uncertain renderings. |
+| Imrei Binah 47 (What comes out of Aristeas on the form of some of the priestly garments) | Draft, 16-Nov-2026, by models; not reviewed. 53 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 48 (What comes out of Philo of Alexandria on the form of some of the priestly garments) | Draft, 16-Nov-2026, by models; not reviewed. 74 segments. References not verified. 9 uncertain renderings. |
+| Imrei Binah 49 (What comes out of the Greek Josephus on the form of some of the priestly garments) | Draft, 16-Nov-2026, by models; not reviewed. 89 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 50 (What comes out of the Christian scholars on the form of some of the priestly garments, and what seems right to draw from the sages in keeping with Scripture and the witnesses cited) | Draft, 16-Nov-2026, by models; not reviewed. 206 segments. References not verified. 10 uncertain renderings. |
+| Imrei Binah 51 (On the prophet Haggai: the glory of this latter house shall be greater than that of the former) | Draft, 16-Nov-2026, by models; not reviewed. 385 segments. References not verified. 24 uncertain renderings. |
+| Imrei Binah 52 (How Helena, queen of Adiabene, and her sons became Jews, from the Greek Josephus, Antiquities book 2, ch. 2; ending with the false prophet called Theudas) | Draft, 16-Nov-2026, by models; not reviewed. 240 segments. References not verified. 6 uncertain renderings. |
+| Imrei Binah 53 (The Greek Josephus on the number of all the high priests from Aaron to the destruction of the Temple) | Draft, 16-Nov-2026, by models; not reviewed. 49 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 54 (On the signs that sometimes appear before great good or evil) | Draft, 16-Nov-2026, by models; not reviewed. 59 segments. References not verified. 9 uncertain renderings. |
+| Imrei Binah 55 (How the Jews, by the prophets and the custom of their fathers, always pray for the peace of the kings who rule them, and in our exile for all the kingdoms) | Draft, 16-Nov-2026, by models; not reviewed. 79 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 56 (On the letters of the ancient Hebrew script, and the holy shekel) | Draft, 16-Nov-2026, by models; not reviewed. 83 segments. References not verified. 7 uncertain renderings. |
+| Imrei Binah 57 (On the antiquity of the holy tongue, and the use of Aramaic among our people) | Draft, 16-Nov-2026, by models; not reviewed. 306 segments. References not verified. 12 uncertain renderings. |
+| Imrei Binah 58 (On the antiquity of the letters of the holy tongue) | Draft, 16-Nov-2026, by models; not reviewed. 147 segments. References not verified. 8 uncertain renderings. |
+| Imrei Binah 59 (On the antiquity of the vowel points and accents of the holy tongue) | Draft, 16-Nov-2026, by models; not reviewed. 160 segments. References not verified. 5 uncertain renderings. |
+| Imrei Binah 60 (On poems composed in the holy tongue) | Draft, 16-Nov-2026, by models; not reviewed. 232 segments. References not verified. 7 uncertain renderings. |
 
 ## Sources
 
@@ -89,7 +124,7 @@ py -3.13 scripts/build_page.py 17          # docs/imrei-binah-17.html and the in
 ```
 
 Chapter titles, pages and status: `data/chapters.json`. The OCR of every reader is in `data/ocr/`.
-Cost (14-Nov-2026): chapters 17-21 (26 pages) OCR $2.20, translation $1.10; chapters 22-32 (43 pages) OCR $2.77, translation $1.93; chapters 33-39 (42 pages) translation $2.07, and OCR of leaves 301-360 $4.49 (the pages of chapter 40 included).
+Cost (14-Nov-2026): chapters 17-21 (26 pages) OCR $2.20, translation $1.10; chapters 22-32 (43 pages) OCR $2.77, translation $1.93; chapters 33-39 (42 pages) translation $2.07, and OCR of leaves 301-360 $4.49 (the pages of chapter 40 included). 16-Nov-2026: chapters 1-15 and 40-60 (leaves 87-226 and 361-505, 285 pages): OCR by the Batch API $7.18 for Opus (the batch took 20.5 hours), translation $13.87 by direct calls (this includes $1.49 for the call that was cut off). Chapters above about 360 segments are translated in parts (`PART_MAX` in `scripts/pipeline.py`): one call for chapter 40 (630 segments) hit the output limit.
 
 `build_page.py` stops if the Hebrew and English segment counts do not agree, or if the ⚠ marks and the notes do not agree.
 

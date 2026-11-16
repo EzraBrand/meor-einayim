@@ -1,0 +1,78 @@
+{
+ "1": {
+  "he": "פרק חלק",
+  "note": "The Rav Safra and R. Abbahu anecdote is usually located in b. Avodah Zarah 4a. The author's attribution to Helek is kept."
+ },
+ "2": {
+  "he": "מלכת השיטי\"ם",
+  "note": "In Herodotus (Book I) Tomyris is queen of the Massagetae, a Scythian people; the author's 'Shitim' is translated as Scythians."
+ },
+ "3": {
+  "he": "י\"ז בניסן",
+  "note": "The figure 17 Nisan is kept as printed; the aim stated is that the festival falls in the proper (spring) season."
+ },
+ "4": {
+  "he": "שער השמים",
+  "note": "The author attributes Sha'ar ha-Shamayim to Isaac Israeli; the work of that title usually cited is by Gershon b. Solomon. The attribution is kept and not resolved here."
+ },
+ "5": {
+  "he": "ר' מימון",
+  "note": "The identity of this R. Maimon, author of a commentary on al-Farghani, is uncertain. The name is transliterated."
+ },
+ "6": {
+  "he": "מפרש הלכות קדוש החדש",
+  "note": "An anonymous commentator on Maimonides' Hilkhot Kiddush ha-Hodesh, not further identified."
+ },
+ "7": {
+  "he": "וי\"ד וג\"י תת\"עו ... ז\"ט תרמ\"ב וד\"ט תרמ\"ב",
+  "note": "These calendrical signs are transliterated as given (days-hours-parts). Their exact values are not resolved here."
+ },
+ "8": {
+  "he": "בחודש העשירי לתשרי",
+  "note": "The Temples were destroyed in Av, the eleventh month counting from Tishri; the text's 'tenth' may reflect a different count. Kept as written."
+ },
+ "9": {
+  "he": "וששה חדשים לאחזיהו",
+  "note": "The six-month reign in 2 Kgs 15:8 is Zechariah's, not Ahaziah's; the text reads Ahaziah. Kept as written."
+ },
+ "10": {
+  "he": "הר\"ר ראובן בר' חיים צבי",
+  "note": "Identification of this commentator on aggadot is uncertain; the name is transliterated."
+ },
+ "11": {
+  "he": "ז\"ט תרמ\"ב",
+  "note": "Adding 2d 4h 438p to BaHaRaD (2d 5h 204p) gives 4d 9h 642p (the molad of Nisan, as in segment 141). The printed ז (7) for the day is kept. The sense of 'the days of its rebuke' is not explained in this chapter."
+ },
+ "12": {
+  "he": "ג\"י תתע\"ו",
+  "note": "Arithmetically, 6d 14h + 4d 8h 876p gives 3d 22h 876p; the printed figure is kept. The same applies in segments 114-115."
+ },
+ "13": {
+  "he": "ר' אחא בסנהדרין פרק ד'",
+  "note": "The attribution and exact wording of this dictum are uncertain."
+ },
+ "14": {
+  "he": "ספר שער השמים למוד ל\"ד",
+  "note": "It is unclear which work entitled Sha'ar ha-Shamayim is meant; the 'I' who proved the point in Yesod Olam suggests the author is Isaac Israeli. The title is transliterated."
+ },
+ "15": {
+  "he": "ר' חסאן הדיין ור' יצחק בן רקופאל",
+  "note": "Names transliterated as printed; the identification of Ben Rakufal is uncertain."
+ },
+ "16": {
+  "he": "דכ\"א תשצ\"ט",
+  "note": "Subtracting one cycle (2-16-595) from BaHaRaD (2-5-204) arithmetically gives 6-12-689, not 4-21-799; the figure is kept as printed and the intended calculation is unclear."
+ },
+ "17": {
+  "he": "יב\"א ר\"ד",
+  "note": "Read as 11 days and 204 parts (i.e. the solar-lunar excess); the abbreviation is obscure in the printing."
+ },
+ "18": {
+  "he": "סאמו\"טיאו",
+  "note": "Transliterated; the identification of this Christian author on calendar reform is uncertain."
+ },
+ "19": {
+  "he": "סאמו\"טיאו",
+  "note": "Same unidentified author as in segment 117."
+ }
+}

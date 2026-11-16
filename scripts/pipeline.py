@@ -16,6 +16,7 @@ Opus translates, and build_page.py writes the page.
 Chapter metadata (title, leaves, Hebrew heading) is in data/chapters.json.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -82,6 +83,81 @@ def cmd_ocr(a, b, specs):
     print(f"done {len(jobs)} calls, ${total[0]:.3f}")
 
 
+def batch_result(d: dict, seconds: float) -> dict:
+    """A Batch API result in the same shape as model_eval.call()."""
+    if "error" in d or "choices" not in d:
+        return {"error": str(d.get("error", d))[:500]}
+    u = d.get("usage", {})
+    ch = d["choices"][0]
+    if ch.get("finish_reason") not in ("stop", "end_turn"):
+        return {"error": f"finish_reason={ch.get('finish_reason')}, cost ${u.get('cost', 0):.4f}"}
+    return {"text": ch["message"].get("content") or "", "provider": d.get("provider"), "engine": "openrouter batch",
+            "in": u.get("prompt_tokens"), "out": u.get("completion_tokens"),
+            "reasoning": (u.get("completion_tokens_details") or {}).get("reasoning_tokens"),
+            "cost": u.get("cost", 0), "seconds": round(seconds, 1)}
+
+
+def cmd_ocr_batch(ranges, specs):
+    """OCR through the OpenRouter Batch API (half price). The page images go to the public crops repo
+    (crophost.py, shared with Bochart; `py -3.13 scripts/crophost.py clean` empties it after the run),
+    because a chat/completions batch takes only image URLs. The readers run as three batches at once."""
+    import io
+    import time
+    from concurrent.futures import ThreadPoolExecutor as TPE
+    from PIL import Image
+    os.environ.setdefault("OPENROUTER_KEY_FILE", str(ME.KEY))
+    import crophost
+    import orbatch
+    leaves = [l for a, b in ranges for l in range(a, b + 1)]
+    todo = {s: [l for l in leaves if not (mdir(s) / f"{l}.json").exists()] for s in specs}
+    need = sorted({l for ls in todo.values() for l in ls})
+    if not need:
+        print("all pages done already")
+        return
+    imgs = {}
+    for leaf in need:
+        im = Image.open(image_file(leaf)).convert("RGB")
+        if im.width > 1600:
+            im = im.resize((1600, round(im.height * 1600 / im.width)))
+        buf = io.BytesIO()
+        im.save(buf, "JPEG", quality=85)
+        imgs[f"meor/{leaf}.jpg"] = buf.getvalue()
+    # OCR_BATCH_STAMP=2026-11-14_1651 resumes the batches of a stopped run (state files in logs/):
+    # nothing is published or submitted again.
+    stamp = os.environ.get("OCR_BATCH_STAMP") or time.strftime("%Y-%m-%d_%H%M")
+    urls = {k: "" for k in imgs} if os.environ.get("OCR_BATCH_STAMP") else crophost.publish(imgs)
+
+    def one(spec):
+        if not todo[spec]:
+            return
+        model, _, effort = spec.partition("@")
+        bodies = {}
+        for leaf in todo[spec]:
+            b = {"max_tokens": 6000, "temperature": 0, "usage": {"include": True},
+                 "messages": [{"role": "user", "content": [
+                     {"type": "text", "text": ME.OCR_PROMPT},
+                     {"type": "image_url", "image_url": {"url": urls[f"meor/{leaf}.jpg"]}}]}]}
+            if effort:
+                b["reasoning"] = {"effort": effort}
+            bodies[f"L{leaf}"] = b
+        t = time.monotonic()
+        res = orbatch.run_batch(model, bodies, log_name=f"ocr_{spec.replace('/', '_').replace('@', '_')}_{stamp}")
+        cost, ok = 0.0, 0
+        for leaf in todo[spec]:
+            r = batch_result(res.get(f"L{leaf}", {"error": "no result"}), time.monotonic() - t)
+            if "error" in r or len(r["text"]) < 300:
+                print(f"{spec} {leaf}: FAILED {r.get('error', 'short text')}", flush=True)
+                continue
+            mdir(spec).mkdir(parents=True, exist_ok=True)
+            (mdir(spec) / f"{leaf}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+            cost += r["cost"]
+            ok += 1
+        print(f"{spec}: {ok}/{len(todo[spec])} pages, ${cost:.3f}", flush=True)
+
+    with TPE(len(specs)) as ex:
+        list(ex.map(one, specs))
+
+
 def page_text(spec: str, leaf: int) -> str:
     return json.loads((mdir(spec) / f"{leaf}.json").read_text(encoding="utf-8"))["text"]
 
@@ -142,6 +218,8 @@ def chapter_text(spec: str, n: int) -> str:
         # up to 10 words of the title (chapters 37-39 share their first 6), with any spacing or
         # punctuation between them (the readers differ there)
         words = [re.escape(w.strip(".,:;•")) for w in km["title_he"].split()[:10] if w.strip(".,:;•")]
+        if not words:  # chapter 1 has no title in the print: by number
+            return None
         t = re.search(r"[\s.,:;•]+".join(words), text)
         return next((m for m in heads if t and m.start() > t.start()), None)
 
@@ -344,12 +422,14 @@ Segments:
 {segs}"""
 
 
-def cmd_translate(n: int):
-    he = [l.strip() for l in (DATA / f"imrei-binah-{n:02d}.he.txt").read_text(encoding="utf-8").split("\n") if l.strip()]
+PART_MAX = 260  # segments in one call: chapter 40 (630 segments) hit the 65,536 output-token limit
+
+
+def translate_call(n: int, he: list[str], raw: Path) -> tuple[list, list, float]:
+    """One model call for the segments `he` (the raw answer is cached in `raw`): English, notes, cost."""
     meta = chapter_meta(n)
     prompt = TR_PROMPT.format(n=n, title_he=meta["title_he"], count=len(he),
                               segs="\n".join(f"{i + 1}. {s}" for i, s in enumerate(he)))
-    raw = DATA / "translate" / f"translate_{n:02d}.json"
     if raw.exists():
         res = json.loads(raw.read_text(encoding="utf-8"))
     else:
@@ -366,6 +446,11 @@ def cmd_translate(n: int):
         # Opus sometimes leaves quotation marks inside a string unescaped (ch. 23: ("Elilim")).
         # The strings are one to a line: escape every quote between the line's first and last quote.
         def fix(line: str) -> str:
+            # a note on one line with unescaped gershayim in "he" (ch. 40: "דכ"א תשצ"ט")
+            nm = re.match(r'^(\s*\{"seg":\s*\d+,\s*"he":\s*")(.*)(",\s*"note":\s*")(.*)("\s*\}\s*,?)$', line)
+            if nm:
+                esc = lambda x: re.sub(r'(?<!\\)"', r'\\"', x)
+                return nm.group(1) + esc(nm.group(2)) + nm.group(3) + esc(nm.group(4)) + nm.group(5)
             m = re.match(r'^(\s*(?:"[a-z]+":\s*)?")(.*)("\s*[,\]}]?\s*,?)$', line)
             if not m or line.strip().startswith(("{", "}", "[", "]")):
                 return line
@@ -377,6 +462,34 @@ def cmd_translate(n: int):
         x.setdefault("he", ""); x.setdefault("note", "")
     if len(en) != len(he):
         sys.exit(f"{len(en)} English segments for {len(he)} Hebrew; see {raw}")
+    return en, notes, res["cost"]
+
+
+def cmd_translate(n: int):
+    blocks = [[l.strip() for l in b.split("\n") if l.strip()]
+              for b in (DATA / f"imrei-binah-{n:02d}.he.txt").read_text(encoding="utf-8").strip().split("\n\n")]
+    he = [l for b in blocks for l in b]
+    raw = DATA / "translate" / f"translate_{n:02d}.json"
+    whole = raw.exists() and json.loads(raw.read_text(encoding="utf-8")).get("out", 0) < 60000  # not cut off
+    if len(he) <= PART_MAX + 100 or whole:
+        en, notes, cost = translate_call(n, he, raw)
+    else:  # parts of whole paragraphs, of about equal size
+        k = -(-len(he) // PART_MAX)
+        size, parts, cur = len(he) / k, [], []
+        for b in blocks:
+            if cur and len(parts) < k - 1 and len(cur) + len(b) / 2 > size:
+                parts.append(cur)
+                cur = []
+            cur = cur + b
+        parts.append(cur)
+        en, notes, cost = [], [], 0.0
+        for i, part in enumerate(parts):
+            e, nt, c = translate_call(n, part, DATA / "translate" / f"translate_{n:02d}.part{i + 1}of{len(parts)}.json")
+            for x in nt:
+                x["seg"] = int(x["seg"]) + len(en)
+            en, notes, cost = en + e, notes + nt, cost + c
+        print(f"chapter {n}: translated in {len(parts)} parts")
+    res = {"cost": cost}
     # English corrections after review: data/en_fixes.json {chapter: [[old, new], ...]}, applied to the
     # segments and the notes; each old string must occur exactly once
     en = [re.sub(r"\*+\)?", "", e).replace("  ", " ").strip() for e in en]  # note marks, *emphasis*
@@ -395,7 +508,7 @@ def cmd_translate(n: int):
         by_seg.setdefault(int(x["seg"]), []).append(x)
     out_notes, k = {}, 0
     for i in range(len(en)):
-        en[i] = en[i].replace("⚠", "").rstrip()
+        en[i] = re.sub(r"\s+([,.;:)\]])", r"\1", re.sub(r"\s*⚠\s*", " ", en[i])).replace("  ", " ").strip()  # no "478 ,"
         for x in by_seg.get(i + 1, []):
             k += 1
             out_notes[str(k)] = {"he": x["he"], "note": x["note"]}
@@ -412,6 +525,49 @@ def cmd_translate(n: int):
     print(f"chapter {n}: {len(en)} segments, {k} notes, ${res['cost']:.3f}")
 
 
+def tr_prompt(n: int) -> tuple[str, int]:
+    he = [l.strip() for l in (DATA / f"imrei-binah-{n:02d}.he.txt").read_text(encoding="utf-8").split("\n") if l.strip()]
+    meta = chapter_meta(n)
+    return TR_PROMPT.format(n=n, title_he=meta["title_he"], count=len(he),
+                            segs="\n".join(f"{i + 1}. {s}" for i, s in enumerate(he))), len(he)
+
+
+def cmd_translate_batch(chapters: list[int]):
+    """Translate several chapters in one Opus batch (half price); the raw answers are cached in
+    data/translate/ exactly as the direct calls, so `translate N` then builds the files."""
+    import time
+    os.environ.setdefault("OPENROUTER_KEY_FILE", str(ME.KEY))
+    import orbatch
+    todo = [n for n in chapters if not (DATA / "translate" / f"translate_{n:02d}.json").exists()]
+    if not todo:
+        print("all chapters translated already")
+    else:
+        model, _, effort = TR_MODEL.partition("@")
+        bodies = {}
+        for n in todo:
+            prompt, count = tr_prompt(n)
+            b = {"max_tokens": min(64000, 4000 + 150 * count), "temperature": 0, "usage": {"include": True},
+                 "response_format": {"type": "json_object"}, "messages": [{"role": "user", "content": prompt}]}
+            if effort:
+                b["reasoning"] = {"effort": effort}
+            bodies[f"ch{n}"] = b
+        t = time.monotonic()
+        res = orbatch.run_batch(model, bodies, log_name=f"translate_{todo[0]}-{todo[-1]}_{time.strftime('%Y-%m-%d_%H%M')}")
+        for n in todo:
+            r = batch_result(res.get(f"ch{n}", {"error": "no result"}), time.monotonic() - t)
+            if "error" in r:
+                print(f"chapter {n}: FAILED {r['error']}", flush=True)
+                continue
+            (DATA / "translate").mkdir(exist_ok=True)
+            (DATA / "translate" / f"translate_{n:02d}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+    for n in chapters:
+        if (DATA / "translate" / f"translate_{n:02d}.json").exists():
+            try:
+                cmd_translate(n)
+            except SystemExit as e:
+                print(f"chapter {n}: {e}", flush=True)
+
+
 def cmd_build(n: int):
     meta = chapter_meta(n)
     subprocess.run([sys.executable, str(ROOT / "scripts" / "build_page.py"), str(n)], check=True)
@@ -422,6 +578,11 @@ if __name__ == "__main__":
     if cmd == "ocr":
         specs = [args[args.index("--model") + 1]] if "--model" in args else [MAIN, SECOND]
         cmd_ocr(int(args[0]), int(args[1]), specs)
+    elif cmd == "ocr-batch":  # ocr-batch 361 505 80 226: all three readers, as batches
+        nums = [int(x) for x in args]
+        cmd_ocr_batch(list(zip(nums[::2], nums[1::2])), [MAIN, SECOND, THIRD])
+    elif cmd == "translate-batch":  # translate-batch 40 41 42 ...
+        cmd_translate_batch([int(x) for x in args])
     elif cmd == "chapters":
         cmd_chapters()
     else:
