@@ -218,7 +218,7 @@ def chapter_text(spec: str, n: int) -> str:
         # up to 10 words of the title (chapters 37-39 share their first 6), with any spacing or
         # punctuation between them (the readers differ there)
         words = [re.escape(w.strip(".,:;•")) for w in km["title_he"].split()[:10] if w.strip(".,:;•")]
-        if not words:  # chapter 1 has no title in the print: by number
+        if not words:  # no title recorded: by number
             return None
         t = re.search(r"[\s.,:;•]+".join(words), text)
         return next((m for m in heads if t and m.start() > t.start()), None)

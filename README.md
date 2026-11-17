@@ -8,7 +8,7 @@ Azariah de' Rossi (about 1511 to 1578) printed *Me'or Einayim* in Mantua in 1573
 
 | Chapter | Status |
 |---|---|
-| Imrei Binah 1 (The first section begins (the chapter has no title in the print)) | Draft, 16-Nov-2026, by models; not reviewed. 85 segments. References not verified. 3 uncertain renderings. |
+| Imrei Binah 1 (The first section: how study that turns on different axes differs from study that turns on one, and why the chapters of this book hold to the varied kind) | Draft, 16-Nov-2026, by models; not reviewed. 85 segments. References not verified. 3 uncertain renderings. |
 | Imrei Binah 2 (Why the author had to bring in the testimony of writers who are not of our people) | Draft, 16-Nov-2026, by models; not reviewed. 199 segments. References not verified. 8 uncertain renderings. |
 | Imrei Binah 3 (What we are to make of Philo (Yedidyah) of Alexandria, who is also cited on some of these questions; with a preface on the Jewish sects of the Second Temple) | Draft, 16-Nov-2026, by models; not reviewed. 145 segments. References not verified. 7 uncertain renderings. |
 | Imrei Binah 4 (The good things in Philo that agree with our Torah) | Draft, 16-Nov-2026, by models; not reviewed. 271 segments. References not verified. 16 uncertain renderings. |
